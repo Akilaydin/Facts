@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Web.Data;
+using OriGames.Facts.Web.Infrastructure.Mappers.Base;
 
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -30,8 +31,12 @@ try
 	builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
 		.AddEntityFrameworkStores<ApplicationDbContext>();
 	
-	builder.Services.AddControllersWithViews();
+	MapperRegistration.GetMapperConfiguration();
+
+	builder.Services.AddAutoMapper(typeof(Program).Assembly);
 	
+	builder.Services.AddControllersWithViews();
+
 	var app = builder.Build();
 
 	if (app.Environment.IsDevelopment())

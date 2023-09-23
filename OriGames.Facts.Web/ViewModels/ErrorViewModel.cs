@@ -1,4 +1,4 @@
-namespace OriGames.Facts.Web.Models;
+namespace OriGames.Facts.Web.ViewModels;
 
 public class ErrorViewModel
 {

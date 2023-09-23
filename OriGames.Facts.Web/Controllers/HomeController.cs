@@ -3,8 +3,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-using OriGames.Facts.Web.Data;
-using OriGames.Facts.Web.Models;
+using OriGames.Facts.Web.ViewModels;
 
 namespace OriGames.Facts.Web.Controllers;
 
