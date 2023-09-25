@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
+using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 
 namespace OriGames.Facts.Web.Controllers;
@@ -21,34 +22,20 @@ public class HomeController : Controller
 		_userManager = userManager;
 	}
 
-	public async Task<IActionResult> Index()
+	public IActionResult Index([FromServices] ApplicationDbContext dbContext)
 	{
-		// if (await _roleManager.RoleExistsAsync(AppData.UserRole) == false)
-		// {
-		// 	await _roleManager.CreateAsync(new IdentityRole(AppData.UserRole));
-		// 	await _roleManager.CreateAsync(new IdentityRole(AppData.AdministratorRole));
-		// }
-		//
-		// const string userEmail = "test@t.com";
-		// const string password = "test22";
-		//
-		// var user = new IdentityUser {
-		// 	Email = userEmail,
-		// 	EmailConfirmed = true,
-		// 	NormalizedEmail = userEmail.ToUpper(),
-		// 	PhoneNumber = "+79999622215",
-		// 	UserName = userEmail,
-		// 	PhoneNumberConfirmed = true,
-		// 	NormalizedUserName = userEmail.ToUpper(),
-		// 	SecurityStamp = Guid.NewGuid().ToString("D")
-		// };
-		// var user2 = await _userManager.FindByNameAsync(userEmail);
-		// await _userManager.DeleteAsync(user2);
-		// var result = await _userManager.CreateAsync(user, password);
-		// if (result.Succeeded)
-		// {
-		// 	await _userManager.AddToRoleAsync(user, AppData.AdministratorRole);
-		// }
+		using var transaction = dbContext.Database.BeginTransaction();
+		
+		var fact = new Fact {
+			Content = "test"
+		};
+
+		dbContext.Facts.Add(fact);
+
+		dbContext.SaveChanges();
+		
+		transaction.Rollback();
+		
 		return View();
 	}
 

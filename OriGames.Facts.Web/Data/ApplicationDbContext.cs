@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+
+using OriGames.Facts.Web.Data.Base;
 
 namespace OriGames.Facts.Web.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : BaseDbContext
 {
+	public DbSet<Fact> Facts { get; set; }
+	public DbSet<Tag> Tags { get; set; }
+	
 	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 	{
 		
-	}
-
-	protected override void OnModelCreating(ModelBuilder builder)
-	{
-		builder.ApplyConfigurationsFromAssembly(typeof(Program).Assembly);
-		base.OnModelCreating(builder);
 	}
 }
