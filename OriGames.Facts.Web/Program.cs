@@ -56,7 +56,10 @@ try
 
 	app.UseAuthorization();
 
-	app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{tag:regex([a-zА-Я])}/{search:regex([a-zА-Я])}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{tag:regex([a-zА-Я])}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "default", pattern: "{controller=Site}/{action=Index}/{id?}");
 	app.MapRazorPages();
 
 	app.Run();
@@ -68,38 +71,4 @@ catch (Exception ex)
 finally
 {
 	Log.CloseAndFlush();
-}
-
-async Task CreateRoles(IServiceProvider serviceProvider)
-{
-	var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-	var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-	foreach (var roleName in AppData.Roles)
-	{
-		var roleExist = await roleManager.RoleExistsAsync(roleName);
-		if (!roleExist)
-		{
-			await roleManager.CreateAsync(new IdentityRole(roleName));
-		}
-	}
-	const string userEmail = "test@t.com";
-	const string password = "test";
-	var poweruser = new IdentityUser
-	{
-		UserName = userEmail,
-		Email = userEmail,
-	};
-	string userPWD = password;
-	var _user = await userManager.FindByEmailAsync(userEmail);
-
-	if(_user == null)
-	{
-		var createPowerUser = await userManager.CreateAsync(poweruser, userPWD);
-		if (createPowerUser.Succeeded)
-		{
-			await userManager.AddToRoleAsync(poweruser, "Admin");
-
-		}
-	}
 }
