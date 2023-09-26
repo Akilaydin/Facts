@@ -9,4 +9,12 @@ public class Notification : Auditable
 	public bool IsSent { get; set; }
 	public string From { get; set; }
 	public string To { get; set; }
+	
+	public Notification(string subject, string content, string from, string to)
+	{
+		Subject = subject;
+		Content = content;
+		From = from;
+		To = to;
+	}
 }

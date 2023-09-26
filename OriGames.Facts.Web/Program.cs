@@ -1,3 +1,8 @@
+using Calabonga.AspNetCore.Controllers.Extensions;
+using Calabonga.UnitOfWork;
+
+using MediatR;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,13 +33,17 @@ try
 	builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 	builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+	
 	builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
 		.AddEntityFrameworkStores<ApplicationDbContext>();
 	
 	MapperRegistration.GetMapperConfiguration();
 
 	builder.Services.AddAutoMapper(typeof(Program).Assembly);
-	
+	//builder.Services.AddCommandAndQueries(typeof(Program).Assembly);
+	builder.Services.AddMediatR(typeof(Program).Assembly);
+	builder.Services.AddUnitOfWork<ApplicationDbContext>();
+
 	builder.Services.AddControllersWithViews();
 
 	var app = builder.Build();
