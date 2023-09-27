@@ -65,10 +65,10 @@ try
 
 	app.UseAuthorization();
 
-	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{tag:regex([a-zА-Я])}/{search:regex([a-zА-Я])}/{pageIndex:int?}");
-	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{tag:regex([a-zА-Я])}/{pageIndex:int?}");
-	app.MapControllerRoute(name: "index", pattern: "{controller=Site}/{action=Index}/{pageIndex:int?}");
-	app.MapControllerRoute(name: "default", pattern: "{controller=Site}/{action=Index}/{id?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{tag:regex([a-zА-Я])}/{search:regex([a-zА-Я])}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{tag:regex([a-zА-Я])}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{pageIndex:int?}");
+	app.MapControllerRoute(name: "default", pattern: "{controller=Facts}/{action=Index}/{id?}");
 	app.MapRazorPages();
 
 	app.Run();

@@ -17,15 +17,6 @@ public class SiteController : Controller
 		_mediator = mediator;
 	}
 
-	public IActionResult Index(int? pageIndex, string? tag, string? search)
-	{
-		ViewBag.Index = pageIndex;
-		ViewBag.Tag = tag;
-		ViewBag.Search = search;
-		
-		return View();
-	}
-
 	public async Task<IActionResult> Privacy()
 	{
 		await _mediator.Publish(new ErrorNotification("Error notification from Privacy", new Exception("Exception")));

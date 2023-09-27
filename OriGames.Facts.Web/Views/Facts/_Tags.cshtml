@@ -1,0 +1,6 @@
+﻿@model IEnumerable<TagViewModel>
+
+@foreach (var tagViewModel in Model)
+{
+    <span class="badge bg-secondary">@tagViewModel.Name</span>
+}
