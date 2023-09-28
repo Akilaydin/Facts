@@ -16,7 +16,7 @@ public class FactsController : Controller
 
 	public async Task<IActionResult> Index(int? pageIndex, string? tag, string? search)
 	{
-		var request = new FactGetPagedRequest { PageIndex = pageIndex ?? 0, Tag = tag, Search = search };
+		var request = new FactGetPagedRequest { PageIndex = pageIndex ?? 1, Tag = tag, Search = search };
 
 		var response = await _mediator.Send(request, HttpContext.RequestAborted);
 		

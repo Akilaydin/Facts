@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
+using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
 
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -45,6 +46,8 @@ try
 	builder.Services.AddUnitOfWork<ApplicationDbContext>();
 
 	builder.Services.AddControllersWithViews();
+
+	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
 
 	var app = builder.Build();
 

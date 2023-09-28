@@ -14,8 +14,12 @@ namespace OriGames.Facts.Web.Controllers.Facts.Queries;
 
 public class FactGetPagedRequest : OperationResultRequestBase<IPagedList<FactViewModel>>
 {
+	private readonly int _pageIndex;
 	public int PageSize { get; set; } = 20;
-	public int PageIndex { get; init; }
+	public int PageIndex {
+		get => _pageIndex;
+		init => _pageIndex = value - 1 < 0 ? 0 : value - 1;
+	}
 
 	public string? Tag { get; init; }
 	public string? Search { get; init; }
