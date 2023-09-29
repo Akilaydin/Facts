@@ -1,4 +1,4 @@
-﻿@model Calabonga.OperationResults.OperationResult<Calabonga.UnitOfWork.IPagedList<FactViewModel>>?
+﻿@model Calabonga.OperationResults.OperationResult<Calabonga.UnitOfWork.IPagedList<FactViewModel>>
 @{
     Layout = "_LayoutColumn";
     ViewData["Title"] = "Home Page";
@@ -11,7 +11,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
     </div>
 }
-@if (Model is not null)
+@if (Model.Result is not null)
 {
     foreach (var fact in Model.Result.Items)
     {

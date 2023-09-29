@@ -10,7 +10,8 @@ public class FactsController : Controller
 {
 	private readonly IMediator _mediator;
 
-	public FactsController(IMediator mediator) {
+	public FactsController(IMediator mediator)
+	{
 		_mediator = mediator;
 	}
 
@@ -19,7 +20,16 @@ public class FactsController : Controller
 		var request = new FactGetPagedRequest { PageIndex = pageIndex ?? 1, Tag = tag, Search = search };
 
 		var response = await _mediator.Send(request, HttpContext.RequestAborted);
-		
+
 		return View(response);
+	}
+
+	public async Task<IActionResult> Show(Guid factId)
+	{
+		var request = new FactGetByIdRequest { Id = factId };
+
+		var fact = await _mediator.Send(request, HttpContext.RequestAborted);
+		
+		return View(fact);
 	}
 }

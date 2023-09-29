@@ -27,6 +27,12 @@ try
 		options.Password.RequireUppercase = false;
 		options.Password.RequireNonAlphanumeric = false;
 	});
+
+	builder.Services.AddRouting(config =>
+	{
+		config.LowercaseQueryStrings = true;
+		config.LowercaseUrls = true;
+	});
 	
 	builder.Host.UseSerilog();
 	
