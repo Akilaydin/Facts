@@ -11,20 +11,20 @@ namespace OriGames.Facts.Web.Controllers;
 
 public class SiteController : Controller
 {
-	private readonly IMediator _mediator;
-
-	public SiteController(IMediator mediator) {
-		_mediator = mediator;
-	}
-
-	public async Task<IActionResult> Privacy()
-	{
-		await _mediator.Publish(new ErrorNotification("Error notification from Privacy", new Exception("Exception")));
-		await _mediator.Publish(new FeedbackNotification("Feedback notification from Privacy", new Exception("Exception")));
-		
-		return View();
-	}
-
+	public IActionResult About() => View();
+        
+	// Calabonga: WHAT I MADE 7
+	public IActionResult RandomFact() => View();
+        
+	// Calabonga: WHAT I MADE 8
+	public IActionResult Cloud() => View();
+        
+	// Calabonga: WHAT I MADE 9
+	public IActionResult Feedback() => View();
+        
+	// Calabonga: WHAT I MADE 10
+	public IActionResult Rss() => View();
+	
 	[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 	public IActionResult Error()
 	{

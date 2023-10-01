@@ -2,5 +2,5 @@
 
 @foreach (var tagViewModel in Model)
 {
-    <span class="badge bg-secondary">@tagViewModel.Name</span>
+    <a asp-controller="Facts" asp-action="Index" asp-route-tag="@tagViewModel.Name" class="badge bg-light text-dark" style="text-decoration: none">@tagViewModel.Name</a>
 }

@@ -1,16 +1,22 @@
 ﻿@model Calabonga.OperationResults.OperationResult<FactViewModel>
 @{
+    Layout = "_Layout";
     ViewData["HideLink"] = true;
 }
-@if (Model.Ok)
-{
-    <partial name="_Fact" model="Model.Result"/>
-}
-else
-{
-    <h1 class="alert-warning">Fact was not found</h1>
-    
-    <p class="alert-warning">
-        @Model.Metadata.Message
-    </p>
-}
+<div class="row">
+    <div class="col">
+        @if (Model.Ok)
+        {
+            <partial name="_Fact" model="Model.Result"/>
+        }
+        else
+        {
+            <h1 class="alert-warning">Fact was not found</h1>
+            
+            <p class="alert-warning">
+                @Model.Metadata.Message
+            </p>
+        }
+    </div>
+</div>
+

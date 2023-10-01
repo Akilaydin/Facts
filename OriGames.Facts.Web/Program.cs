@@ -79,6 +79,18 @@ try
 	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{pageIndex:int?}");
 	app.MapControllerRoute(name: "default", pattern: "{controller=Facts}/{action=Index}/{id?}");
 	app.MapRazorPages();
+	
+	#region disable some pages
+
+	// Calabonga: WHAT I MADE 1
+
+	app.MapGet("/Identity/Account/Register", context => Task.Factory.StartNew(() =>
+		context.Response.Redirect("/Identity/Account/Login?returnUrl=~%2F", true, true)));
+
+	app.MapPost("/Identity/Account/Register", context => Task.Factory.StartNew(() => 
+		context.Response.Redirect("/Identity/Account/Login?returnUrl=~%2F", true, true)));
+
+	#endregion
 
 	app.Run();
 }

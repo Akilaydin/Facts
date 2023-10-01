@@ -17,6 +17,9 @@ public class FactsController : Controller
 
 	public async Task<IActionResult> Index(int? pageIndex, string? tag, string? search)
 	{
+		ViewData["search"] = search;
+		ViewData["tag"] = tag;
+		
 		var clampedPageIndex = pageIndex ?? 1;
 		
 		var request = new FactGetPagedRequest { PageIndex = clampedPageIndex, Tag = tag, Search = search };
