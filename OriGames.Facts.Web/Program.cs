@@ -47,7 +47,6 @@ try
 	MapperRegistration.GetMapperConfiguration();
 
 	builder.Services.AddAutoMapper(typeof(Program).Assembly);
-	//builder.Services.AddCommandAndQueries(typeof(Program).Assembly);
 	builder.Services.AddMediatR(typeof(Program).Assembly);
 	builder.Services.AddUnitOfWork<ApplicationDbContext>();
 
@@ -81,9 +80,6 @@ try
 	app.MapRazorPages();
 	
 	#region disable some pages
-
-	// Calabonga: WHAT I MADE 1
-
 	app.MapGet("/Identity/Account/Register", context => Task.Factory.StartNew(() =>
 		context.Response.Redirect("/Identity/Account/Login?returnUrl=~%2F", true, true)));
 
