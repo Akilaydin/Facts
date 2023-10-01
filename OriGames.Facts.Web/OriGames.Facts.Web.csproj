@@ -26,6 +26,7 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.10" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
         <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+        <PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.1.23419.5" />
     </ItemGroup>
 
     <ItemGroup>

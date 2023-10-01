@@ -25,4 +25,13 @@ public class FeedbackViewModel
 	[DataType(DataType.MultilineText)]
 	[Display(Name = "Текст сообщения")]
 	public string Body { get; set; } = null!;
+
+	[Required(ErrorMessage = "{0} - обязательное поле")]
+	[Display(Name = "Ответ")]
+	public int CaptchaAnswer { get; set; }
+
+	public override string ToString()
+	{
+		return $"Subject: {Subject} UserName: {UserName} MailFrom: {MailFrom} MessageBody: {Body}";
+	}
 }

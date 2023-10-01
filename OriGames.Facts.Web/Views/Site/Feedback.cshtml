@@ -13,28 +13,40 @@
         <form asp-action="Feedback" asp-controller="Site" method="post" role="form">
             @Html.AntiForgeryToken()
 
-            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(false, "", new {
+                @class = "text-danger"
+            })
 
             <div class="mb-3">
                 <label asp-for="Subject"></label>
-                @Html.DropDownListFor(model => model.Subject, (IEnumerable<SelectListItem>)ViewData["Subjects"], "",
-                    new Dictionary<string, object> { { "class", "form-control" } })
+                @Html.DropDownListFor(model => model.Subject, (IEnumerable<SelectListItem>)ViewData["Subjects"], "", new Dictionary<string, object> {
+                    { "class", "form-control" }
+                })
                 <span asp-validation-for="Subject" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="UserName"></label>
-                <input asp-for="UserName" class="form-control" type="text" />
+                <input asp-for="UserName" class="form-control" type="text"/>
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="MailFrom"></label>
-                <input asp-for="MailFrom" class="form-control" type="text" />
+                <input asp-for="MailFrom" class="form-control" type="text"/>
                 <span asp-validation-for="MailFrom" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Body"></label>
                 <textarea asp-for="Body" rows="6" class="form-control"></textarea>
                 <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <span asp-validation-for="CaptchaAnswer" class="text-danger"></span>
+                <div class="input-group">
+                    <img src="@Url.Action("GetCaptchaImage", "Site")" class="img-thumbnail"/>
+                    <input asp-for="CaptchaAnswer" class="form-control" type="number"/>
+
+                </div>
+
             </div>
             <p>
                 <button class="btn btn-primary" type="submit">Отправить</button>
