@@ -1,4 +1,5 @@
-﻿@model Calabonga.OperationResults.OperationResult<FactViewModel>
+﻿@using OriGames.Facts.RazorLibrary
+@model Calabonga.OperationResults.OperationResult<FactViewModel>
 @{
     Layout = "_Layout";
     ViewData["HideLink"] = true;
@@ -19,4 +20,11 @@
         }
     </div>
 </div>
+
+<component type="typeof(Component1)" render-mode="ServerPrerendered"/>
+
+@section Scripts
+{
+    <script src="_framework/blazor.server.js"></script>
+}
 

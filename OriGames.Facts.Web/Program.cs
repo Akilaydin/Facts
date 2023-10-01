@@ -54,6 +54,8 @@ try
 
 	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
 
+	builder.Services.AddServerSideBlazor();
+
 	var app = builder.Build();
 
 	if (app.Environment.IsDevelopment())

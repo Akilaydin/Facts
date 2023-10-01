@@ -33,4 +33,8 @@
       <Folder Include="SQLScripts\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\OriGames.Facts.RazorLibrary\OriGames.Facts.RazorLibrary.csproj" />
+    </ItemGroup>
+
 </Project>
