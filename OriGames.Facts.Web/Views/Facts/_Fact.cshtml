@@ -24,3 +24,8 @@
         </div>
     </div>
 </div>
+
+@if (ViewBag.ReturnUrl is not null)
+{
+    <a href="@Url.Content(ViewBag.ReturnUrl)" class="btn btn-sm btn-outline-secondary">Назад</a>
+}

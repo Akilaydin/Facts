@@ -1,8 +1,11 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+
+using AutoMapper;
 
 using Calabonga.AspNetCore.Controllers;
 using Calabonga.AspNetCore.Controllers.Base;
 using Calabonga.OperationResults;
+using Calabonga.PredicatesBuilder;
 using Calabonga.UnitOfWork;
 
 using Microsoft.EntityFrameworkCore;
@@ -40,8 +43,11 @@ public class FactGetPagedRequestHandler : OperationResultRequestHandlerBase<Fact
 	public override async Task<OperationResult<IPagedList<FactViewModel>>> Handle(FactGetPagedRequest request, CancellationToken cancellationToken)
 	{
 		var operation = OperationResult.CreateResult<IPagedList<FactViewModel>>();
+		
+		var predicate = BuildPredicate(request);
 
 		var items = await _unitOfWork.GetRepository<Fact>().GetPagedListAsync(
+			predicate: predicate,
 			include: i => i.Include(x => x.Tags),
 			orderBy: o => o.OrderByDescending(x => x.CreatedAt),
 			pageIndex: request.PageIndex,
@@ -54,5 +60,22 @@ public class FactGetPagedRequestHandler : OperationResultRequestHandlerBase<Fact
 		operation.AddSuccess("Success");
 		
 		return operation;
+	}
+	
+	private Expression<Func<Fact, bool>> BuildPredicate(FactGetPagedRequest request)
+	{
+		var predicate = PredicateBuilder.True<Fact>();
+
+		if (string.IsNullOrWhiteSpace(request.Search) == false)
+		{
+			predicate = predicate.And(x => x.Content.Contains(request.Search));
+		}
+
+		if (string.IsNullOrWhiteSpace(request.Tag) == false)
+		{
+			predicate = predicate.And(x => x.Tags.Select(t => t.Name).Contains(request.Tag));
+		}
+		
+		return predicate;
 	}
 }

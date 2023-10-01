@@ -17,18 +17,27 @@ public class FactsController : Controller
 
 	public async Task<IActionResult> Index(int? pageIndex, string? tag, string? search)
 	{
-		var request = new FactGetPagedRequest { PageIndex = pageIndex ?? 1, Tag = tag, Search = search };
+		var clampedPageIndex = pageIndex ?? 1;
+		
+		var request = new FactGetPagedRequest { PageIndex = clampedPageIndex, Tag = tag, Search = search };
 
 		var response = await _mediator.Send(request, HttpContext.RequestAborted);
+
+		if (response.Ok && response.Result.TotalPages < clampedPageIndex)
+		{
+			return RedirectToAction(nameof(Index), new {pageIndex = 1, tag, search});
+		}
 
 		return View(response);
 	}
 
-	public async Task<IActionResult> Show(Guid factId)
+	public async Task<IActionResult> Show(Guid factId, string? returnUrl = null)
 	{
 		var request = new FactGetByIdRequest { Id = factId };
 
 		var fact = await _mediator.Send(request, HttpContext.RequestAborted);
+
+		ViewBag.ReturnUrl = returnUrl!;
 		
 		return View(fact);
 	}
