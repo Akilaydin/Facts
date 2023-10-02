@@ -80,6 +80,8 @@ try
 	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{pageIndex:int?}");
 	app.MapControllerRoute(name: "default", pattern: "{controller=Facts}/{action=Index}/{id?}");
 	app.MapRazorPages();
+
+	app.MapBlazorHub();
 	
 	#region disable some pages
 	app.MapGet("/Identity/Account/Register", context => Task.Factory.StartNew(() =>

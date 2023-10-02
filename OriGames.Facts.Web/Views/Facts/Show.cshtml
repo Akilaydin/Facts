@@ -1,5 +1,4 @@
-﻿@using OriGames.Facts.RazorLibrary
-@model Calabonga.OperationResults.OperationResult<FactViewModel>
+﻿@model Calabonga.OperationResults.OperationResult<FactViewModel>
 @{
     Layout = "_Layout";
     ViewData["HideLink"] = true;
@@ -21,10 +20,13 @@
     </div>
 </div>
 
-<component type="typeof(Component1)" render-mode="ServerPrerendered"/>
-
+@section Headers
+{
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+}
 @section Scripts
 {
     <script src="_framework/blazor.server.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 }
 

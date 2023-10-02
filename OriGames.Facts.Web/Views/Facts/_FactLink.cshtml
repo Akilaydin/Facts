@@ -1,4 +1,5 @@
 ﻿@using OriGames.Facts.Web.Extensions
+@using OriGames.Facts.RazorLibrary
 @model Guid
 @if (ViewData["HideLink"] is null)
 {
@@ -6,5 +7,5 @@
 }
 else
 {
-    <span>Скопировать ссылку</span>
+    <component type="typeof(FactLinkComponent)" render-mode="ServerPrerendered" param-LinkValue="@Url.ActionLink("Show", "Facts", new {id = Model})"/>
 }
