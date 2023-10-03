@@ -26,10 +26,12 @@ public class RandomFactRequestHandler : RequestHandlerBase<RandomFactRequest, Fa
 
 	public override async Task<FactViewModel> Handle(RandomFactRequest request, CancellationToken cancellationToken)
 	{
-		var fact = await _unitOfWork.GetRepository<Fact>().GetAll(true).OrderBy(x => EF.Functions.Random()).FirstOrDefaultAsync(cancellationToken);
-
+		var fact = await _unitOfWork.GetRepository<Fact>().GetAll(true).Include(f => f.Tags).OrderBy(x => EF.Functions.Random()).FirstOrDefaultAsync(cancellationToken);
+		
+		var mappedFact = _mapper.Map<FactViewModel>(fact);
+		
 		return fact == null 
 			? new FactViewModel {Content = "No data"} 
-			: _mapper.Map<FactViewModel>(fact);
+			: mappedFact;
 	}
 }

@@ -44,8 +44,6 @@ public class SiteController : Controller
 
 	public IActionResult Cloud() => View();
 
-	public IActionResult Rss() => View();
-
 	public IActionResult Feedback()
 	{
 		ViewData["Subjects"] = _subjects;

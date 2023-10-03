@@ -40,6 +40,13 @@ public class FactsController : Controller
 		
 		return View(response);
 	}
+	
+	public async Task<ViewResult> Rss()
+	{
+		var response = await _mediator.Send(new FactRssRequest());
+		
+		return View(response);
+	}
 
 	public async Task<IActionResult> Show(Guid factId, string? returnUrl = null)
 	{

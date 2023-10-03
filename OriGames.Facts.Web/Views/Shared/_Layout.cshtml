@@ -9,8 +9,8 @@
     <base href="~/"/>
     <link rel="stylesheet" href="~/OriGames.Facts.Web.styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"/>
-    <link rel="Shortcut Icon" href="~/favicon.ico" />
-        @await RenderSectionAsync("Headers", required: false)
+    <link rel="Shortcut Icon" href="~/favicon.ico"/>
+    @await RenderSectionAsync("Headers", false)
 </head>
 <body>
 <header>
@@ -22,17 +22,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Facts" asp-action="RandomFact" title="случайно выбранный факт">Случайный факт</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Site" asp-action="Cloud" title="облако тегов">Облако меток</a>
-                                    </li>
-            
-                                    <partial name="_LoginPartial" />
-                                </ul>
-                            </div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Facts" asp-action="RandomFact" title="случайно выбранный факт">Случайный факт</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Site" asp-action="Cloud" title="облако тегов">Облако меток</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Facts" asp-action="Rss">RSS</a>
+                    </li>
+
+                    <partial name="_LoginPartial"/>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
@@ -43,22 +46,22 @@
 </div>
 
 <footer class="row text-muted">
-            <ul class="nav nav-pills nav-fill">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Site" asp-action="About">О проекте</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Site" asp-action="Feedback">Обратная связь</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Site" asp-action="Rss">RSS-канал фактов</a>
-                </li>
-            </ul>
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Site" asp-action="About">О проекте</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Site" asp-action="Feedback">Обратная связь</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Facts" asp-action="Rss">RSS-канал фактов</a>
+        </li>
+    </ul>
 
-            <p class="small text-center">
-                &copy; 2023 - OriGames
-            </p>
-        </footer>
+    <p class="small text-center">
+        &copy; 2023 - OriGames
+    </p>
+</footer>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

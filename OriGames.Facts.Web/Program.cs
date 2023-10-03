@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
+using OriGames.Facts.Web.Infrastructure.Services;
 using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
 
 using Serilog;
@@ -53,6 +54,7 @@ try
 	builder.Services.AddControllersWithViews();
 
 	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
+	builder.Services.AddTransient<IFactService, FactService>();
 
 	builder.Services.AddServerSideBlazor();
 
