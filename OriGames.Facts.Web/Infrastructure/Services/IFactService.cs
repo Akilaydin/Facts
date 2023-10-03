@@ -4,5 +4,5 @@ namespace OriGames.Facts.Web.Infrastructure.Services;
 
 public interface IFactService
 {
-	IEnumerable<Fact> GetTwentyFacts();
+	IEnumerable<Fact> GetLastTwentyFacts();
 }

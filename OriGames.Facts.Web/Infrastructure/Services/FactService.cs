@@ -14,7 +14,7 @@ public class FactService : IFactService
 		_unitOfWork = unitOfWork;
 	}
 
-	public IEnumerable<Fact> GetTwentyFacts()
+	public IEnumerable<Fact> GetLastTwentyFacts()
 	{
 		return _unitOfWork.GetRepository<Fact>()
 			.GetAll(true)
