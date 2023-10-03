@@ -25,7 +25,7 @@ public class FactRssRequestHandler : RequestHandlerBase<FactRssRequest, string>
 	public override async Task<string> Handle(FactRssRequest request, CancellationToken cancellationToken)
 	{
 		await using var sw = new EncodingStringWriterService(Encoding.UTF8);
-		await using XmlWriter xmlWriter = XmlWriter.Create(sw, new XmlWriterSettings
+		await using var xmlWriter = XmlWriter.Create(sw, new XmlWriterSettings
 		{
 			Async = true,
 			Indent = true
@@ -34,37 +34,29 @@ public class FactRssRequestHandler : RequestHandlerBase<FactRssRequest, string>
 
 		await writer.WriteTitle(".NET Programming");
 		await writer.WriteDescription("RSS 2.0!");
-		await writer.Write(new SyndicationLink(new Uri("https://www.calabonga.net")));
-		await writer.Write(new SyndicationPerson("Calabonga", "dev@calabonga.net (Sergei Calabonga)", RssContributorTypes.ManagingEditor));
+		// await writer.Write(new SyndicationLink(new Uri("Testlink")));
+		// await writer.Write(new SyndicationPerson("TestName", "TestEmail@gmail.com", RssContributorTypes.ManagingEditor));
 		await writer.WritePubDate(DateTimeOffset.Now);
 
 		var posts = _factService.GetTwentyFacts();
 		foreach (var post in posts)
 		{
-			var newTag = new Tag() { Name = "No tag" };
+			var factTheme = post.Tags!.MinBy(_ => Guid.NewGuid());
 
-			if (post.Tags.Count == 0)
-			{
-				post.Tags.Add(newTag);
-			}
-            
 			var item = new SyndicationItem
 			{
 				Id = post.Id.ToString(),
-				Title = $"Факт на тему \"{post.Tags!.OrderBy(_ => Guid.NewGuid()).First().Name}\"",
+				Title = $"Факт на тему \"{factTheme.Name}\"",
 				Description = post.Content,
 				Published = post.CreatedAt,
 				LastUpdated = post.UpdatedAt ??= post.CreatedAt
 			};
 
-			item.AddLink(new SyndicationLink(new Uri($"https://www.calabonga.net/blog/post/{post.Id}")));
 			foreach (var tag in post.Tags!)
 			{
 				item.AddCategory(new SyndicationCategory($"{tag.Name}"));
 			}
-
-			item.AddContributor(new SyndicationPerson("Calabonga", "dev@calabonga.net (Sergei Calabonga)"));
-
+			
 			await writer.Write(item);
 
 
