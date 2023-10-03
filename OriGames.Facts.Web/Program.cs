@@ -40,7 +40,6 @@ try
 	var connectionString = builder.Configuration.GetConnectionString(nameof(ApplicationDbContext)) ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 	builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 	builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
 	
 	builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
 		.AddEntityFrameworkStores<ApplicationDbContext>();
@@ -52,9 +51,13 @@ try
 	builder.Services.AddUnitOfWork<ApplicationDbContext>();
 
 	builder.Services.AddControllersWithViews();
-
+	
+	//Dependencies
 	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
 	builder.Services.AddTransient<IFactService, FactService>();
+	builder.Services.AddTransient<ITagService, TagService>();
+
+	builder.Services.AddResponseCaching();
 
 	builder.Services.AddServerSideBlazor();
 
@@ -76,6 +79,8 @@ try
 	app.UseRouting();
 
 	app.UseAuthorization();
+
+	app.UseResponseCaching();
 
 	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{tag:regex([a-zА-Я])}/{search:regex([a-zА-Я])}/{pageIndex:int?}");
 	app.MapControllerRoute(name: "index", pattern: "{controller=Facts}/{action=Index}/{tag:regex([a-zА-Я])}/{pageIndex:int?}");

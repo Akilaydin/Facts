@@ -41,9 +41,7 @@ public class SiteController : Controller
 	{
 		return View();
 	}
-
-	public IActionResult Cloud() => View();
-
+	
 	public IActionResult Feedback()
 	{
 		ViewData["Subjects"] = _subjects;

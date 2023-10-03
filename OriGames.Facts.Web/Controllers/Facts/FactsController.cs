@@ -41,6 +41,11 @@ public class FactsController : Controller
 		return View(response);
 	}
 	
+	public IActionResult Cloud()
+	{
+		return View();
+	}
+
 	public async Task<IActionResult> RssChannel()
 	{
 		var response = await _mediator.Send(new FactRssRequest());
