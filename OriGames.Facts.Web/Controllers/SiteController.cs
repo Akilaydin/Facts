@@ -10,8 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.JSInterop;
 
-using OriGames.Facts.RazorLibrary;
-using OriGames.Facts.Web.Controllers.Facts;
+using OriGames.Facts.Web.Controllers.Facts.Queries;
 using OriGames.Facts.Web.Mediatr.Notifications;
 using OriGames.Facts.Web.ViewModels;
 
@@ -21,15 +20,13 @@ public class SiteController : Controller
 {
 	private readonly IMediator _mediator;
 	private readonly IWebHostEnvironment _environment;
-	private readonly IJSRuntime _jsRuntime;
-	
+
 	private readonly List<SelectListItem> _subjects;
 
 	public SiteController(IMediator mediator, IWebHostEnvironment environment, IJSRuntime jsRuntime) 
 	{
 		_mediator = mediator;
 		_environment = environment;
-		_jsRuntime = jsRuntime;
 
 		_subjects = new List<string> {
 				"Связь с разработчиком",
@@ -40,12 +37,10 @@ public class SiteController : Controller
 			.ToList();
 	}
 
-	public async Task<IActionResult> About()
+	public IActionResult About()
 	{
 		return View();
 	}
-
-	public IActionResult RandomFact() => View();
 
 	public IActionResult Cloud() => View();
 

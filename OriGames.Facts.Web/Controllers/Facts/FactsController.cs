@@ -33,6 +33,13 @@ public class FactsController : Controller
 
 		return View(response);
 	}
+	
+	public async Task<ViewResult> RandomFact()
+	{
+		var response = await _mediator.Send(new RandomFactRequest());
+		
+		return View(response);
+	}
 
 	public async Task<IActionResult> Show(Guid factId, string? returnUrl = null)
 	{
