@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Web.Data;
+using OriGames.Facts.Web.Infrastructure.Helpers;
 using OriGames.Facts.Web.ViewModels;
 
 namespace OriGames.Facts.Web.Infrastructure.Services;

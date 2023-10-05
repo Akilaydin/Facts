@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.JSInterop;
 
-using OriGames.Facts.Web.Controllers.Facts.Queries;
 using OriGames.Facts.Web.Mediatr.Notifications;
 using OriGames.Facts.Web.ViewModels;
 

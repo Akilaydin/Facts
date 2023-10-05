@@ -20,7 +20,7 @@ public class AdministratorController : Controller
         
 	public IActionResult Add() => View();
 
-	public IActionResult SendNotification(string subject, string mailTo, string addressFrom = "robot@calabonga.net")
+	public IActionResult SendNotification(string subject, string mailTo, string addressFrom = "test@calabonga.net")
 	{
 		var model = new ManualNotificationViewModel { MailTo = mailTo, Subject = subject, MailFrom = addressFrom };
 		return View(model);

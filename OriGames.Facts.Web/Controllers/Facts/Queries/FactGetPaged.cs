@@ -45,7 +45,7 @@ public class FactGetPagedRequestHandler : OperationResultRequestHandlerBase<Fact
 		var operation = OperationResult.CreateResult<IPagedList<FactViewModel>>();
 		
 		var predicate = BuildPredicate(request);
-
+		
 		var items = await _unitOfWork.GetRepository<Fact>().GetPagedListAsync(
 			predicate: predicate,
 			include: i => i.Include(x => x.Tags),

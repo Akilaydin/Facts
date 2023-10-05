@@ -3,7 +3,7 @@
 @model Guid
 @if (ViewData["HideLink"] is null)
 {
-    <a asp-controller="Facts" asp-action="Show" asp-route-factId="@Model" asp-route-returnUrl="@Context.GetReturnUrl()">Подробнее</a>
+    <a asp-controller="Facts" asp-action="Show" asp-route-factId="@Model" asp-route-returnUrl="@Context.GetReturnUrl()#@Model">Подробнее</a>
 }
 else
 {

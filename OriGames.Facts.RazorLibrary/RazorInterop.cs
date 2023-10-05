@@ -30,6 +30,12 @@ public class RazorInterop : IAsyncDisposable
 		return await module.InvokeAsync<string>("copyToClipboard", value);
 	}
 
+	public async ValueTask SetTagTotal(int value)
+	{
+		var module = await _moduleTask.Value;
+		await module.InvokeVoidAsync("setTagsTotal", "TotalTags", value);
+	}
+	
 	public async ValueTask DisposeAsync()
 	{
 		if (_moduleTask.IsValueCreated)

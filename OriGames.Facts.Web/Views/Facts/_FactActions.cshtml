@@ -1,0 +1,6 @@
+﻿@using OriGames.Facts.Web.Data
+@using OriGames.Facts.Web.Extensions
+@if (User?.Identity?.IsAuthenticated == true && User.IsInRole(AppData.AdministratorRole))
+{
+    <a asp-controller="Facts" asp-action="Edit" asp-route-id="@Model" asp-route-returnUrl="@Context.GetReturnUrl()#@Model">Изменить</a>
+}

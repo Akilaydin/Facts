@@ -1,6 +1,6 @@
-using OriGames.Facts.Web.ViewModels;
+﻿using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Web.Infrastructure.Helpers;
 
 public static class TagCloudHelper
 {

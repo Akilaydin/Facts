@@ -28,3 +28,10 @@ export function showToast(message, title, type)
 export function copyToClipboard(value){
     navigator.clipboard.writeText(value);
 }
+
+export function setTagsTotal(element, value) {
+    var control = document.querySelector(`#${element}`);
+    if (control) {
+        control.value = value;
+    }
+}
