@@ -6,10 +6,11 @@ using System.Drawing.Text;
 
 using MediatR;
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.JSInterop;
 
+using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Mediatr.Notifications;
 using OriGames.Facts.Web.ViewModels;
 
@@ -18,14 +19,18 @@ namespace OriGames.Facts.Web.Controllers;
 public class SiteController : Controller
 {
 	private readonly IMediator _mediator;
+	private readonly UserManager<IdentityUser> _userManager;
+	private readonly RoleManager<IdentityRole> _roleManager;
 	private readonly IWebHostEnvironment _environment;
 
 	private readonly List<SelectListItem> _subjects;
 
-	public SiteController(IMediator mediator, IWebHostEnvironment environment, IJSRuntime jsRuntime) 
+	public SiteController(IMediator mediator, IWebHostEnvironment environment, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager) 
 	{
 		_mediator = mediator;
 		_environment = environment;
+		_userManager = userManager;
+		_roleManager = roleManager;
 
 		_subjects = new List<string> {
 				"Связь с разработчиком",
@@ -36,9 +41,14 @@ public class SiteController : Controller
 			.ToList();
 	}
 
-	public IActionResult About()
+	public async Task<IActionResult> About()
 	{
 		return View();
+
+		//var user = new IdentityUser {NormalizedEmail = "test2@gmail.com", NormalizedUserName = "test2", UserName = "test2"};
+		// var role = new IdentityRole(AppData.AdministratorRole);
+		// var r = await _roleManager.CreateAsync(role);
+		// var r3 = await _userManager.AddToRoleAsync(await _userManager.FindByEmailAsync("test2@gmail.com"), AppData.AdministratorRole);
 	}
 	
 	public IActionResult Feedback()

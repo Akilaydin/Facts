@@ -94,7 +94,7 @@ public abstract class BaseDbContext : IdentityDbContext
 
 		var modifiedEntities = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified).ToArray();
 
-		foreach (var modifiedEntity in modifiedEntities)
+		foreach (var modifiedEntity in modifiedEntities.Where(x => x.GetType().IsAssignableTo(typeof(IAuditable))))
 		{
 			var propertyEntry = modifiedEntity.Property(nameof(IAuditable.UpdatedBy));
 			
