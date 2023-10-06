@@ -1,4 +1,3 @@
-using Calabonga.AspNetCore.Controllers.Extensions;
 using Calabonga.UnitOfWork;
 
 using MediatR;
@@ -6,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+using OriGames.Facts.Contracts;
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
 using OriGames.Facts.Web.Infrastructure.Services;
@@ -53,10 +53,11 @@ try
 
 	builder.Services.AddControllersWithViews();
 	
-	//Dependencies
+	// Dependencies
 	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
 	builder.Services.AddTransient<IFactService, FactService>();
 	builder.Services.AddTransient<ITagService, TagService>();
+	builder.Services.AddTransient<ITagSearchService, TagSearchService>();
 
 	builder.Services.AddResponseCaching();
 
