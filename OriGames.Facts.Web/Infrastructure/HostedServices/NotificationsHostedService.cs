@@ -8,7 +8,7 @@ namespace OriGames.Facts.Web.Infrastructure.HostedServices;
 public class NotificationsHostedService : ScheduledHostedServiceBase
 {
 	#if DEBUG
-		protected override string Schedule => "*/1 * * * *"; //note: every 1 minute
+		protected override string Schedule => "*/5 * * * *"; //note: every 5 minuts
 	#else
 		protected override string Schedule => "*/1 * * * *"; //note: every 1 minute
 	#endif
