@@ -1,0 +1,14 @@
+﻿@using OriGames.Facts.Web.Infrastructure.Services
+@using OriGames.Facts.Web.Data
+
+@inject IVersionInfoService VersionInfoService
+
+<br/>
+v.@VersionInfoService.Version
+
+@if (User.IsInRole(AppData.AdministratorRole))
+{
+    <text>
+        @VersionInfoService.Branch - @VersionInfoService.Commit
+    </text>
+}

@@ -56,6 +56,7 @@ try
 	// Dependencies
 	builder.Services.AddTransient<IPagerTagHelperService, PagerTagHelperService>();
 	builder.Services.AddTransient<IFactService, FactService>();
+	builder.Services.AddTransient<IVersionInfoService, VersionInfoService>();
 	builder.Services.AddTransient<ITagService, TagService>();
 	builder.Services.AddTransient<ITagSearchService, TagSearchService>();
 
