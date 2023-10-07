@@ -17,9 +17,7 @@ public class AdministratorController : Controller
 	public AdministratorController(IMediator mediator) => _mediator = mediator;
 
 	public IActionResult Index() => View();
-        
-	public IActionResult Add() => View();
-
+	
 	public IActionResult SendNotification(string subject, string mailTo, string addressFrom = "test@calabonga.net")
 	{
 		var model = new ManualNotificationViewModel { MailTo = mailTo, Subject = subject, MailFrom = addressFrom };

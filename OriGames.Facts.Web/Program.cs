@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Contracts;
 using OriGames.Facts.Web.Data;
+using OriGames.Facts.Web.Infrastructure.HostedServices;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
+using OriGames.Facts.Web.Infrastructure.Providers;
 using OriGames.Facts.Web.Infrastructure.Services;
 using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
 
@@ -59,6 +61,11 @@ try
 	builder.Services.AddTransient<IVersionInfoService, VersionInfoService>();
 	builder.Services.AddTransient<ITagService, TagService>();
 	builder.Services.AddTransient<ITagSearchService, TagSearchService>();
+	builder.Services.AddTransient<INotificationsProvider, NotificationsProvider>();
+	builder.Services.AddTransient<IEmailSenderService, MockAlwaysTrueEmailSenderService>();
+	
+	// Hosted Services
+	builder.Services.AddHostedService<NotificationsHostedService>();
 
 	builder.Services.AddResponseCaching();
 
