@@ -9,7 +9,7 @@ public class PagerTagHelperService : IPagerTagHelperService
 	private const string LabelLast = "»»";
 	private const string LabelFirst = "««";
 
-	public PagerContext GetPagerContext(int pageIndex, int pageSize, int totalCount, int pagesInGroup)
+	PagerContext IPagerTagHelperService.GetPagerContext(int pageIndex, int pageSize, int totalCount, int pagesInGroup)
 	{
 		var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
 		var groupIndex = (int)Math.Floor(Convert.ToDecimal(pageIndex) / Convert.ToDecimal(pagesInGroup));
@@ -44,7 +44,7 @@ public class PagerTagHelperService : IPagerTagHelperService
 		};
 	}
 
-	public IEnumerable<PagerPageBase> GetPages(PagerContext pager)
+	IEnumerable<PagerPageBase> IPagerTagHelperService.GetPages(PagerContext pager)
 	{
 		var list = new List<PagerPageBase>();
 

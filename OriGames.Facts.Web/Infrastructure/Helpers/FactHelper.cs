@@ -2,9 +2,9 @@
 
 namespace OriGames.Facts.Web.Infrastructure.Helpers;
 
-public static class TagCloudHelper
+public static class FactHelper
 {
-	public static List<TagCloud> Generate(List<TagCloud> items, int clusterCount)
+	public static List<TagCloud> GenerateTagCloud(List<TagCloud> items, int clusterCount)
 	{
 		var totalCount = items.Count;
 		var tagsCloud = items.OrderBy(x => x.Total).ToList();
@@ -42,5 +42,16 @@ public static class TagCloudHelper
 		}
 
 		return result.OrderBy(x => x.Name).ToList();
+	}
+	
+	public static (string[] toCreate, string[] toDelete) FindDifferenceInTags(string[] old, string[] current)
+	{
+		var mask = current.Intersect(old);
+		
+		var toDelete = old.Except(current).ToArray();
+		
+		var toCreate = current.Except(mask).ToArray();
+		
+		return new(toCreate, toDelete);
 	}
 }

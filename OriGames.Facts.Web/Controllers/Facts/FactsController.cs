@@ -3,9 +3,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using OriGames.Facts.Web.Controllers.Facts.Commands;
 using OriGames.Facts.Web.Controllers.Facts.Queries;
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
+
+using FactUpdateRequest = OriGames.Facts.Web.Controllers.Facts.Queries.FactUpdateRequest;
 
 namespace OriGames.Facts.Web.Controllers.Facts;
 
@@ -58,13 +61,40 @@ public class FactsController : Controller
 
 	[HttpPost]
 	[Authorize(Roles = AppData.AdministratorRole)]
-	public IActionResult Edit(FactEditViewModel model)
+	public async Task<IActionResult> Edit(FactEditViewModel model)
 	{
-		return !ModelState.IsValid 
-			? View(model)
-			: Redirect(model.ReturnUrl);
+		if (ModelState.IsValid)
+		{
+			var operationResult = await _mediator.Send(new FactUpdateRequest(model));
+			
+			if (operationResult.Ok)
+			{
+				return string.IsNullOrEmpty(model.ReturnUrl)
+					? RedirectToAction("Index", "Facts")
+					: Redirect(model.ReturnUrl);
+			}
+		}
 
+		return View(model);
 	}
+	
+	[HttpPost]
+	[Authorize(Roles = AppData.AdministratorRole)]
+	public async Task<IActionResult> Add(FactCreateViewModel model)
+	{
+		if (ModelState.IsValid)
+		{
+			var operationResult = await _mediator.Send(new FactAddRequest(model));
+			if (operationResult.Ok)
+			{
+				return RedirectToAction("Index", "Facts");
+			}
+			ModelState.AddModelError("", operationResult.Exception.GetBaseException().Message);
+		}
+
+		return View(model);
+	}
+
 	
 	public IActionResult Cloud()
 	{

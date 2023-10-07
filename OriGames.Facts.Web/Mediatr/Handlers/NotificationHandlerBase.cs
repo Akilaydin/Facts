@@ -21,7 +21,7 @@ public abstract class NotificationHandlerBase<T> : INotificationHandler<T> where
 		_unitOfWork = unitOfWork;
 	}
 
-	public async Task Handle(T handledNotification, CancellationToken cancellationToken)
+	async Task INotificationHandler<T>.Handle(T handledNotification, CancellationToken cancellationToken)
 	{
 		var notificationsRepository = _unitOfWork.GetRepository<Notification>();
 		var notificationContentBuilder = new StringBuilder();

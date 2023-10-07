@@ -71,7 +71,7 @@ public class NotificationGetPagedRequestHandler : OperationResultRequestHandlerB
 		return predicate;
 	}
 
-	public void Dispose()
+	void IDisposable.Dispose()
 	{
 		_unitOfWork.Dispose();
 	}

@@ -14,7 +14,7 @@ public class TagSearchService : ITagSearchService
 		_unitOfWork = unitOfWork;
 	}
 
-	public List<string> SearchTags(string term)
+	List<string> ITagSearchService.SearchTags(string term)
 	{
 		var tags = _unitOfWork.GetRepository<Tag>()
 			.GetAll(s => s.Name, x => x.Name.ToLower()

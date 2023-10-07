@@ -5,7 +5,7 @@ namespace OriGames.Facts.Web.Data.Configurations;
 
 public class NotificationModelConfiguration : IEntityTypeConfiguration<Notification>
 {
-	public void Configure(EntityTypeBuilder<Notification> builder)
+	void IEntityTypeConfiguration<Notification>.Configure(EntityTypeBuilder<Notification> builder)
 	{
 		builder.ToTable("Notifications");
 

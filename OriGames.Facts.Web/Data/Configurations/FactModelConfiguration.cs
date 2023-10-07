@@ -5,7 +5,7 @@ namespace OriGames.Facts.Web.Data.Configurations;
 
 public class FactModelConfiguration : IEntityTypeConfiguration<Fact>
 {
-	public void Configure(EntityTypeBuilder<Fact> builder)
+	void IEntityTypeConfiguration<Fact>.Configure(EntityTypeBuilder<Fact> builder)
 	{
 		builder.ToTable("Facts");
 		builder.HasKey(p => p.Id);

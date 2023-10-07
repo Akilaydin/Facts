@@ -6,7 +6,7 @@ namespace OriGames.Facts.Web.Data.Configurations;
 public class TagModelConfiguration : IEntityTypeConfiguration<Tag>
 {
 
-	public void Configure(EntityTypeBuilder<Tag> builder)
+	void IEntityTypeConfiguration<Tag>.Configure(EntityTypeBuilder<Tag> builder)
 	{
 		builder.ToTable("Tags");
 		builder.HasKey(p => p.Id);
