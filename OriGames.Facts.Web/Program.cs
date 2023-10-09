@@ -66,6 +66,7 @@ try
 	
 	// Hosted Services
 	builder.Services.AddHostedService<NotificationsHostedService>();
+	builder.Services.AddHostedService<DbDataSeeder>();
 
 	builder.Services.AddResponseCaching();
 
@@ -108,8 +109,6 @@ try
 		context.Response.Redirect("/Identity/Account/Login?returnUrl=~%2F", true, true)));
 
 	#endregion
-
-	app.SeedData();
 	
 	app.Run();
 }

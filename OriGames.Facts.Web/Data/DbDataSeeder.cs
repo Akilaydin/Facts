@@ -1,44 +1,63 @@
 ﻿using AutoBogus;
 
+using Microsoft.AspNetCore.Identity;
+
 using OriGames.Facts.Web.Data.FakeData;
 
 namespace OriGames.Facts.Web.Data;
 
-public static class DbDataSeeder
+public class DbDataSeeder : IHostedService
 {
 	private const int FakeFactsCount = 500;
 	private const int FakeTagsCount = 400;
-	private const string SystemEmail = "System@test.com";
 	
-	public static WebApplication SeedData(this WebApplication app)
+	private const string SystemEmail = "System@test.com";
+	private const string AdminEmail = "admin@gmail.com";
+	private const string DefaultUserEmail = "user@gmail.com";
+	
+	private const string DefaultUserPassword = "user";
+	private const string AdminPassword = "admin";
+
+	private readonly UserManager<IdentityUser> _userManager;
+	private readonly RoleManager<IdentityRole> _roleManager;
+	private readonly ApplicationDbContext _dbContext;
+
+	private readonly IServiceScope _scope;
+
+	public DbDataSeeder(IServiceProvider serviceProvider)
 	{
-		using var scope = app.Services.CreateScope();
-		
-		using var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+		_scope = serviceProvider.CreateScope();
 
-		try
-		{
-			context.Database.EnsureCreated();
-
-			if (context.Facts.Any())
-			{
-				return app;
-			}
-
-			Seed(context);
-
-			context.SaveChanges();
-		}
-		catch (Exception e)
-		{
-			Console.WriteLine(e);
-			throw;
-		}
-
-		return app;
+		_roleManager = _scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+		_userManager = _scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+		_dbContext = _scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 	}
 
-	private static void Seed(ApplicationDbContext context)
+	public async Task StartAsync(CancellationToken cancellationToken)
+	{
+		await _dbContext.Database.EnsureCreatedAsync(cancellationToken);
+
+		if (_dbContext.Facts.Any() == false)
+		{
+			SeedFactsAndTags(_dbContext);
+		}
+
+		if (await _userManager.FindByEmailAsync(AdminEmail) == null)
+		{
+			await SeedUsersAsync();
+		}
+		
+		await _dbContext.SaveChangesAsync(cancellationToken);
+	}
+
+	public Task StopAsync(CancellationToken cancellationToken)
+	{
+		_scope.Dispose();
+		
+		return Task.CompletedTask;
+	}
+
+	private void SeedFactsAndTags(ApplicationDbContext context)
 	{
 		var factKeys = new Queue<Guid>(AutoFaker.Generate<Guid>(FakeFactsCount));
 		var tagKeys = new Queue<Guid>(AutoFaker.Generate<Guid>(FakeTagsCount));
@@ -95,6 +114,23 @@ public static class DbDataSeeder
 				
 				fakeFacts.Add(fakeFact);
 			}
+		}
+	}
+	
+	private async Task SeedUsersAsync()
+	{
+		await CreateUserAsync(AdminEmail, AdminPassword, new IdentityRole(AppData.AdministratorRole));
+		await CreateUserAsync(DefaultUserEmail, DefaultUserPassword, new IdentityRole(AppData.UserRole));
+
+		async Task CreateUserAsync(string email, string password, IdentityRole role)
+		{
+			var newUser = new IdentityUser { Email = email, EmailConfirmed = true, NormalizedEmail = email.ToUpper(), NormalizedUserName = email.ToUpper(), UserName = email.ToLower() };
+			
+			await _userManager.CreateAsync(newUser, password);
+			
+			await _roleManager.CreateAsync(role);
+			
+			await _userManager.AddToRoleAsync(newUser, role.Name!);
 		}
 	}
 }
