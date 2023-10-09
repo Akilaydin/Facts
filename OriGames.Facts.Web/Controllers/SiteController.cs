@@ -6,11 +6,9 @@ using System.Drawing.Text;
 
 using MediatR;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Mediatr.Notifications;
 using OriGames.Facts.Web.ViewModels;
 

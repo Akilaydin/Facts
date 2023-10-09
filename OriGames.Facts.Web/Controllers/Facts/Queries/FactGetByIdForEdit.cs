@@ -1,6 +1,5 @@
 ﻿using Calabonga.AspNetCore.Controllers;
 using Calabonga.AspNetCore.Controllers.Records;
-using Calabonga.Microservices.Core.Exceptions;
 using Calabonga.OperationResults;
 using Calabonga.UnitOfWork;
 
@@ -44,7 +43,7 @@ public class FactGetByIdForEditRequestHandler : OperationResultRequestHandlerBas
 			return operation;
 		}
 
-		operation.AddError(new MicroserviceNotFoundException($"{nameof(Fact)} not found with Id: {request.Id}"));
+		operation.AddError(new NullReferenceException($"{nameof(Fact)} not found with Id: {request.Id}"));
 		return operation;
 	}
 }

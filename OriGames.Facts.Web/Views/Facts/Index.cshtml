@@ -32,7 +32,7 @@
             </div>
         </form>
 
-        <span>найдено @(Model.Ok ? Model.Result?.TotalCount.ToString() : "Фактов не найдено")</span>
+        <span>Найдено @(Model.Ok ? Model.Result?.TotalCount.ToString() : "0")</span>
 
         @if (!string.IsNullOrEmpty(GetTag()))
         {

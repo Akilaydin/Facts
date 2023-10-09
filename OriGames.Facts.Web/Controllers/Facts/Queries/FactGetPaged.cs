@@ -54,8 +54,15 @@ public class FactGetPagedRequestHandler : OperationResultRequestHandlerBase<Fact
 			pageSize: request.PageSize,
 			cancellationToken: cancellationToken);
 
-		var mappedList = _mapper.Map<IPagedList<FactViewModel>>(items);
+		if (items.TotalPages == 0)
+		{
+			operation.AddError(new NullReferenceException($"There were no facts filtered by given predicate {predicate}"));
 
+			return operation;
+		}
+
+		var mappedList = _mapper.Map<IPagedList<FactViewModel>>(items);
+		
 		operation.Result = mappedList;
 		operation.AddSuccess("Success");
 		
