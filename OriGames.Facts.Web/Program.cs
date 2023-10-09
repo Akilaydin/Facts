@@ -109,6 +109,8 @@ try
 
 	#endregion
 
+	app.SeedData();
+	
 	app.Run();
 }
 catch (Exception ex)

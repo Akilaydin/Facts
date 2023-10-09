@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoBogus" Version="2.13.1" />
         <PackageReference Include="AutoMapper" Version="12.0.1" />
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
         <PackageReference Include="Calabonga.AspNetCore.Controllers" Version="3.0.1" />
@@ -33,10 +34,6 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
         <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
         <PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.1.23419.5" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="SQLScripts\" />
     </ItemGroup>
 
     <ItemGroup>
