@@ -18,7 +18,7 @@ public class AdministratorController : Controller
 
 	public IActionResult Index() => View();
 	
-	public IActionResult SendNotification(string subject, string mailTo, string addressFrom = "test@calabonga.net")
+	public IActionResult SendNotification(string subject, string mailTo, string addressFrom = "admin@gmail.com")
 	{
 		var model = new ManualNotificationViewModel { MailTo = mailTo, Subject = subject, MailFrom = addressFrom };
 		return View(model);

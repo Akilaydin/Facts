@@ -2,7 +2,7 @@
 
 <div class="row">
     <label asp-for="Tags"></label>
-    @for (int i = 0; i < Tags.Count; i++)
+    @for (int i = 0; i < Tags?.Count; i++)
     {
         <input name="Tags[@i]" value="@Tags[i]" type="hidden" />
     }

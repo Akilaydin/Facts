@@ -78,6 +78,12 @@ public class FactsController : Controller
 		return View(model);
 	}
 	
+	[Authorize(Roles = AppData.AdministratorRole)]
+	public IActionResult Add()
+	{
+		return View();
+	}
+
 	[HttpPost]
 	[Authorize(Roles = AppData.AdministratorRole)]
 	public async Task<IActionResult> Add(FactCreateViewModel model)
@@ -85,16 +91,17 @@ public class FactsController : Controller
 		if (ModelState.IsValid)
 		{
 			var operationResult = await _mediator.Send(new FactAddRequest(model));
+			
 			if (operationResult.Ok)
 			{
 				return RedirectToAction("Index", "Facts");
 			}
+			
 			ModelState.AddModelError("", operationResult.Exception.GetBaseException().Message);
 		}
 
-		return View(model);
+		return View();
 	}
-
 	
 	public IActionResult Cloud()
 	{

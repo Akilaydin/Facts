@@ -10,6 +10,8 @@ public class FactCreateViewModel : ITagsHolder
 	/// Content for editing
 	/// </summary>
 	[Display(Name = "Содержание факта")]
+	[Required]
+	[MinLength(10, ErrorMessage = "Факт должен быть длиной хотя бы {1} символов")]
 	public string? Content { get; set; }
 
 	public List<string>? Tags { get; set; }
