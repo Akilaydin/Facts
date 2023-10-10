@@ -20,8 +20,10 @@ public class FactMapperConfiguration : MapperConfigurationBase
 			.ForMember(m => m.UpdatedAt, o=> o.Ignore())
 			.ForMember(m => m.UpdatedBy, o=> o.Ignore())
 			;
-		
-		CreateMap<Fact, FactEditViewModel>();
+
+		CreateMap<Fact, FactEditViewModel>()
+			.ForMember(m => m.TotalTags, o => o.Ignore())
+			.ForMember(m => m.ReturnUrl, o => o.Ignore());
 		
 		CreateMap<FactEditViewModel, Fact>()
 			.ForMember(m => m.Id, o=> o.Ignore())
