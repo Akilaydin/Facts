@@ -38,6 +38,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\OriGames.Facts.Contracts\OriGames.Facts.Contracts.csproj" />
+      <ProjectReference Include="..\OriGames.Facts.Domain\OriGames.Facts.Domain.csproj" />
       <ProjectReference Include="..\OriGames.Facts.RazorLibrary\OriGames.Facts.RazorLibrary.csproj" />
     </ItemGroup>
 

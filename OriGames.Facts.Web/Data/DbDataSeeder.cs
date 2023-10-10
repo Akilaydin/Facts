@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Identity;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data.FakeData;
 
 namespace OriGames.Facts.Web.Data;

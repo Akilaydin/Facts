@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+using OriGames.Facts.Domain.Data;
+
 namespace OriGames.Facts.Web.Data.Configurations;
 
 public class TagModelConfiguration : IEntityTypeConfiguration<Tag>

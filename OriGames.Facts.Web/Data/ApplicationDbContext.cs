@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data.Base;
 
 namespace OriGames.Facts.Web.Data;

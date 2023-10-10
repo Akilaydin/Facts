@@ -4,6 +4,8 @@ using AutoBogus;
 
 using Bogus;
 
+using OriGames.Facts.Domain.Data;
+
 namespace OriGames.Facts.Web.Data.FakeData;
 
 public sealed class FactFaker : AutoFaker<Fact>

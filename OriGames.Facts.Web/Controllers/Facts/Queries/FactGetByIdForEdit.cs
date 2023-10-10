@@ -3,6 +3,7 @@ using Calabonga.AspNetCore.Controllers.Records;
 using Calabonga.OperationResults;
 using Calabonga.UnitOfWork;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 

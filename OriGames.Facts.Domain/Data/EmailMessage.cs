@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.Data;
+﻿namespace OriGames.Facts.Domain.Data;
 
 public class EmailMessage
 {

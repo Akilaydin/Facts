@@ -2,6 +2,7 @@ using Calabonga.UnitOfWork;
 
 using Microsoft.EntityFrameworkCore;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data;
 
 namespace OriGames.Facts.Web.Infrastructure.Services;

@@ -1,5 +1,6 @@
 ﻿using Calabonga.UnitOfWork;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
 using OriGames.Facts.Web.ViewModels;

@@ -1,6 +1,6 @@
 ﻿using Calabonga.EntityFrameworkCore.Entities.Base;
 
-namespace OriGames.Facts.Web.Data;
+namespace OriGames.Facts.Domain.Data;
 
 public class Tag : Identity
 {

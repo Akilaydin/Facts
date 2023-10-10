@@ -6,6 +6,7 @@ using Calabonga.OperationResults;
 using Calabonga.PredicatesBuilder;
 using Calabonga.UnitOfWork;
 
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 

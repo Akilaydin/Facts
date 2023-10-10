@@ -1,4 +1,5 @@
-﻿using OriGames.Facts.Web.Data;
+﻿using OriGames.Facts.Domain.Data;
+using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Mappers.Base;
 
 namespace OriGames.Facts.Web.Infrastructure.Mappers;
