@@ -3,9 +3,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using OriGames.Facts.Infrastructure.Data;
 using OriGames.Facts.Web.Controllers.Facts.Commands;
 using OriGames.Facts.Web.Controllers.Facts.Queries;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 
 using FactUpdateRequest = OriGames.Facts.Web.Controllers.Facts.Queries.FactUpdateRequest;

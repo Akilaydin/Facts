@@ -1,7 +1,6 @@
 ﻿using Calabonga.UnitOfWork;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 
 namespace OriGames.Facts.Contracts;
 

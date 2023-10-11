@@ -8,7 +8,6 @@ using Calabonga.UnitOfWork;
 using MediatR;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Services;
 using OriGames.Facts.Web.ViewModels;
 

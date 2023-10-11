@@ -5,7 +5,6 @@ using Calabonga.UnitOfWork;
 using MediatR;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Extensions;
 using OriGames.Facts.Web.Mediatr.Notifications;
 

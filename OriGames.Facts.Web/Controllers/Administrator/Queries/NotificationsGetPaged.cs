@@ -7,7 +7,6 @@ using Calabonga.PredicatesBuilder;
 using Calabonga.UnitOfWork;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 
 namespace OriGames.Facts.Web.Controllers.Administrator.Queries;

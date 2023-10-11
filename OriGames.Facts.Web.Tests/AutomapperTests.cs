@@ -1,4 +1,4 @@
-﻿using OriGames.Facts.Web.Infrastructure.Mappers.Base;
+﻿using OriGames.Facts.Infrastructure.Mappers.Base;
 
 using Xunit;
 

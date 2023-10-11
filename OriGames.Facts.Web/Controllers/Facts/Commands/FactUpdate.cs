@@ -11,7 +11,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Services;
 using OriGames.Facts.Web.ViewModels;
 

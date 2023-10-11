@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Contracts;
-using OriGames.Facts.Web.Data;
+using OriGames.Facts.Infrastructure.Data;
+using OriGames.Facts.Infrastructure.Mappers.Base;
 using OriGames.Facts.Web.Infrastructure.HostedServices;
-using OriGames.Facts.Web.Infrastructure.Mappers.Base;
 using OriGames.Facts.Web.Infrastructure.Providers;
 using OriGames.Facts.Web.Infrastructure.Services;
 using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;

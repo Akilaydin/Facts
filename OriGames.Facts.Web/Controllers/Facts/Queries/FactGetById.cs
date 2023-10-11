@@ -8,7 +8,6 @@ using Calabonga.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.ViewModels;
 
 namespace OriGames.Facts.Web.Controllers.Facts.Queries;

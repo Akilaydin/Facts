@@ -9,8 +9,6 @@
 
     <ItemGroup>
         <PackageReference Include="AutoBogus" Version="2.13.1" />
-        <PackageReference Include="AutoMapper" Version="12.0.1" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
         <PackageReference Include="Calabonga.AspNetCore.Controllers" Version="3.0.1" />
         <PackageReference Include="Calabonga.EntityFrameworkCore.Entities.Base" Version="3.0.1" />
         <PackageReference Include="Calabonga.Microservices.BackgroundWorkers" Version="2.0.3" />
@@ -39,7 +37,12 @@
     <ItemGroup>
       <ProjectReference Include="..\OriGames.Facts.Contracts\OriGames.Facts.Contracts.csproj" />
       <ProjectReference Include="..\OriGames.Facts.Domain\OriGames.Facts.Domain.csproj" />
+      <ProjectReference Include="..\OriGames.Facts.Infrastructure\OriGames.Facts.Infrastructure.csproj" />
       <ProjectReference Include="..\OriGames.Facts.RazorLibrary\OriGames.Facts.RazorLibrary.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Infrastructure\Mappers\Base\" />
     </ItemGroup>
 
 </Project>

@@ -3,7 +3,6 @@
 using Calabonga.UnitOfWork;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Data;
 using OriGames.Facts.Web.Infrastructure.Services;
 
 namespace OriGames.Facts.Web.Infrastructure.Providers;
