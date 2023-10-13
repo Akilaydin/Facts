@@ -1,4 +1,5 @@
 using OriGames.Facts.Domain.Data;
+using OriGames.Facts.Domain.Interfaces;
 
 namespace OriGames.Facts.Web.Infrastructure.Services;
 

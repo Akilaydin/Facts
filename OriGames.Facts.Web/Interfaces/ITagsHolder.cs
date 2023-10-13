@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.Infrastructure;
+﻿namespace OriGames.Facts.Web.Interfaces;
 
 public interface ITagsHolder
 {

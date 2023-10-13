@@ -1,11 +1,12 @@
 ﻿using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Infrastructure.Mappers.Base;
+using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Infrastructure.Mappers;
+namespace OriGames.Facts.Web.Mapping;
 
-public class TagMapperConfiguration : MapperConfigurationBase
+public class TagViewModelMapperConfiguration : MapperConfigurationBase
 {
-	public TagMapperConfiguration()
+	public TagViewModelMapperConfiguration()
 	{
 		CreateMap<Tag, TagViewModel>();
 		

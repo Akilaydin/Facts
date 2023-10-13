@@ -1,11 +1,11 @@
 ﻿using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Infrastructure.Mappers.Base;
 
-namespace OriGames.Facts.Infrastructure.Mappers;
+namespace OriGames.Facts.Infrastructure.Mappers.Configurations;
 
-public class NotificationMapperConfiguration : MapperConfigurationBase
+public class NotificationEmailMapperConfiguration : MapperConfigurationBase
 {
-	public NotificationMapperConfiguration()
+	public NotificationEmailMapperConfiguration()
 	{
 		CreateMap<Notification, EmailMessage>()
 			.ForMember(n => n.Author, o => o.MapFrom(e => e.CreatedBy))

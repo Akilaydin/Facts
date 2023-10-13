@@ -2,7 +2,9 @@
 
 using AutoMapper;
 
-namespace OriGames.Facts.Infrastructure.Mappers.Base;
+using OriGames.Facts.Infrastructure.Mappers.Base;
+
+namespace OriGames.Facts.Infrastructure.Mappers.Configurations;
 
 public static class MapperRegistration
 {

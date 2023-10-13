@@ -95,7 +95,7 @@ public class SiteController : Controller
 
 		return View();
 	}
-
+	
 	[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 	public IActionResult Error()
 	{
@@ -139,6 +139,8 @@ public class SiteController : Controller
 			_ = stream.Read(bytes, 0, bytes.Length);
 		}
 
+		List<(int a, int b)> t = new List<(int a, int b)>();
+		
 		System.IO.File.Delete(filename);
 		TempData["CaptchaAnswer"] = x + y - z;
 		return new FileContentResult(bytes, "image/jpeg");

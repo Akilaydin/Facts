@@ -1,12 +1,15 @@
-﻿using OriGames.Facts.Domain.Data;
+﻿using Calabonga.UnitOfWork;
+
+using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Infrastructure.Mappers.Base;
-using OriGames.Facts.Infrastructure.Mappers.Converters;
+using OriGames.Facts.Web.Mapping.Converters;
+using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Infrastructure.Mappers;
+namespace OriGames.Facts.Web.Mapping;
 
-public class FactMapperConfiguration : MapperConfigurationBase
+public class FactViewModelMapperConfiguration : MapperConfigurationBase
 {
-	public FactMapperConfiguration()
+	public FactViewModelMapperConfiguration()
 	{
 		CreateMap<Fact, FactViewModel>();
 		

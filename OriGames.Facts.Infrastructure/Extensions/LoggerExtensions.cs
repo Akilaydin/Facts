@@ -1,4 +1,6 @@
-﻿namespace OriGames.Facts.Web.Extensions;
+﻿using Microsoft.Extensions.Logging;
+
+namespace OriGames.Facts.Infrastructure.Extensions;
 
 static class EventIdentifiers
 {

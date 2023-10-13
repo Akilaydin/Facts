@@ -1,5 +1,6 @@
 ﻿using Calabonga.Microservices.BackgroundWorkers;
 
+using OriGames.Facts.Infrastructure.Extensions;
 using OriGames.Facts.Web.Extensions;
 using OriGames.Facts.Web.Infrastructure.Providers;
 

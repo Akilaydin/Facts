@@ -41,8 +41,4 @@
       <ProjectReference Include="..\OriGames.Facts.RazorLibrary\OriGames.Facts.RazorLibrary.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Infrastructure\Mappers\Base\" />
-    </ItemGroup>
-
 </Project>
