@@ -5,7 +5,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using OriGames.Facts.Domain.Interfaces;
 using OriGames.Facts.Infrastructure.Data;
 using OriGames.Facts.Infrastructure.Services;
 using OriGames.Facts.Infrastructure.Services.HostedServices;
@@ -116,3 +115,5 @@ finally
 {
 	Log.CloseAndFlush();
 }
+
+public partial class Program { }

@@ -5,6 +5,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe72e4c8_002Da6b9_002D46c0_002Da627_002D31b4b316f14e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AutomapperTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.AutomapperTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests.GetTwentyFacts_Should_Return_20_Facts&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
