@@ -1,7 +1,6 @@
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Domain.Interfaces;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class MockAlwaysTrueEmailSenderService : IEmailSenderService
 {

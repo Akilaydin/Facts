@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using OriGames.Facts.Web.Infrastructure.Services;
+using OriGames.Facts.Infrastructure.Services;
 
 namespace OriGames.Facts.Web.ViewComponents;
 

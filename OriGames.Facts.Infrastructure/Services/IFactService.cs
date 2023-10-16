@@ -1,6 +1,6 @@
 ﻿using OriGames.Facts.Domain.Data;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public interface IFactService
 {

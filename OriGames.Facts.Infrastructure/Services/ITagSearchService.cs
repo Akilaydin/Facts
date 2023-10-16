@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Contracts;
+﻿namespace OriGames.Facts.Infrastructure.Services;
 
 public interface ITagSearchService
 {

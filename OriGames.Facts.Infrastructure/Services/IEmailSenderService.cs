@@ -1,6 +1,6 @@
 ﻿using OriGames.Facts.Domain.Data;
 
-namespace OriGames.Facts.Domain.Interfaces;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public interface IEmailSenderService
 {

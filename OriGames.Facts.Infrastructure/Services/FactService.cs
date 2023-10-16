@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Domain.Data;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class FactService : IFactService
 {
@@ -18,7 +18,7 @@ public class FactService : IFactService
 	{
 		return _unitOfWork.GetRepository<Fact>()
 			.GetAll(true)
-			.Include(x => x.Tags)
+			.Include<Fact, ICollection<Tag>>(x => x.Tags)
 			.OrderByDescending(f => f.CreatedAt)
 			.Take(20)
 			.AsEnumerable();

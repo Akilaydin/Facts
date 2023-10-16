@@ -1,8 +1,7 @@
 ﻿using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Interfaces;
-using OriGames.Facts.Web.ViewModels;
+using OriGames.Facts.Domain.Interfaces;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public interface ITagService
 {

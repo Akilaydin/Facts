@@ -2,7 +2,7 @@
 
 using OriGames.Facts.Domain.Data;
 
-namespace OriGames.Facts.Contracts;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class TagSearchService : ITagSearchService
 {
@@ -14,9 +14,9 @@ public class TagSearchService : ITagSearchService
 
 	List<string> ITagSearchService.SearchTags(string term)
 	{
-		var tags = _unitOfWork.GetRepository<Tag>()
-			.GetAll(s => s.Name, x => x.Name.ToLower()
-			.StartsWith(term.ToLower()), true).ToList();
+		var tags = Enumerable.ToList<string>(_unitOfWork.GetRepository<Tag>()
+				.GetAll(s => s.Name, x => x.Name.ToLower()
+					.StartsWith(term.ToLower()), true));
 
 		return tags;
 	}

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using OriGames.Facts.Web.Infrastructure;
-using OriGames.Facts.Web.Interfaces;
+using OriGames.Facts.Domain.Interfaces;
 
 namespace OriGames.Facts.Web.ViewModels;
 

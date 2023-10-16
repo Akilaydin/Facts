@@ -3,9 +3,8 @@
 using Calabonga.UnitOfWork;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Domain.Interfaces;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class NotificationsService : INotificationsService
 {
@@ -24,7 +23,7 @@ public class NotificationsService : INotificationsService
 	{
 		var notificationsRepository = _unitOfWork.GetRepository<Notification>();
 
-		var notifications = notificationsRepository.GetAll(predicate: n => n.IsSent == false, n => n.OrderBy(notification => notification.CreatedAt)).ToList();
+		var notifications = Enumerable.ToList<Notification>(notificationsRepository.GetAll(predicate: n => n.IsSent == false, n => Queryable.OrderBy<Notification, DateTime>(n, notification => notification.CreatedAt)));
 
 		if (notifications.Any() == false)
 		{

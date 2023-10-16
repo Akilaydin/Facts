@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class EncodingStringWriterService : StringWriter
 {

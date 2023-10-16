@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.ViewModels;
+﻿namespace OriGames.Facts.Domain.Data;
 
 public class TagCloud
 {

@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.Infrastructure.Services;
+﻿namespace OriGames.Facts.Infrastructure.Services;
 
 public interface INotificationsService
 {

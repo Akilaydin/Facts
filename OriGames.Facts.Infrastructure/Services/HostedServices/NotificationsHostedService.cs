@@ -1,8 +1,11 @@
 ﻿using Calabonga.Microservices.BackgroundWorkers;
 
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
 using OriGames.Facts.Infrastructure.Extensions;
 
-namespace OriGames.Facts.Web.Infrastructure.Services.HostedServices;
+namespace OriGames.Facts.Infrastructure.Services.HostedServices;
 
 public class NotificationsHostedService : ScheduledHostedServiceBase
 {

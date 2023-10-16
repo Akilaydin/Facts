@@ -7,7 +7,7 @@ using Calabonga.AspNetCore.Controllers.Records;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Rss;
 
-using OriGames.Facts.Web.Infrastructure.Services;
+using OriGames.Facts.Infrastructure.Services;
 
 namespace OriGames.Facts.Web.Controllers.Facts.Queries;
 

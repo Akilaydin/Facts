@@ -5,16 +5,15 @@ using Calabonga.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 using OriGames.Facts.Domain.Data;
-using OriGames.Facts.Web.Interfaces;
-using OriGames.Facts.Web.ViewModels;
+using OriGames.Facts.Domain.Interfaces;
 
-namespace OriGames.Facts.Web.Infrastructure.Services;
+namespace OriGames.Facts.Infrastructure.Services;
 
 public class TagService : ITagService
 {
 	private readonly IUnitOfWork _unitOfWork;
 
-	public TagService(IUnitOfWork unitOfWork, IFactService factService)
+	public TagService(IUnitOfWork unitOfWork)
 	{
 		_unitOfWork = unitOfWork;
 	}
@@ -44,7 +43,7 @@ public class TagService : ITagService
 		var tagRepository = _unitOfWork.GetRepository<Tag>();
 
 		var tagsAfterEdit = tagsHolder.Tags!.ToArray();
-		var tagsBeforeEdit = tagRepository.GetAll(x => x.Name.ToLower(), x => x.Facts!.Select(p => p.Id).Contains(fact.Id), null).ToArray();
+		var tagsBeforeEdit = Enumerable.ToArray<string>(tagRepository.GetAll(x => x.Name.ToLower(), x => Enumerable.Select<Fact, Guid>(x.Facts!, p => p.Id).Contains(fact.Id), null));
 
 		var (tagsToCreate, tagsToDelete) = FindDifferenceInTags(tagsBeforeEdit, tagsAfterEdit);
 
@@ -58,7 +57,7 @@ public class TagService : ITagService
 					continue;
 				}
 
-				var used = _unitOfWork.GetRepository<Fact>().GetAll(x => x.Tags!.Select(t => t.Name).Contains(tag.Name), true).ToArray();
+				var used = Enumerable.ToArray<bool>(_unitOfWork.GetRepository<Fact>().GetAll(x => Enumerable.Select<Tag, string>(x.Tags!, t => t.Name).Contains(tag.Name), true));
 
 				if (used.Length == 1)
 				{

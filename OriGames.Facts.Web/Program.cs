@@ -5,11 +5,10 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using OriGames.Facts.Contracts;
 using OriGames.Facts.Domain.Interfaces;
 using OriGames.Facts.Infrastructure.Data;
-using OriGames.Facts.Web.Infrastructure.Services;
-using OriGames.Facts.Web.Infrastructure.Services.HostedServices;
+using OriGames.Facts.Infrastructure.Services;
+using OriGames.Facts.Infrastructure.Services.HostedServices;
 using OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
 using Serilog;
