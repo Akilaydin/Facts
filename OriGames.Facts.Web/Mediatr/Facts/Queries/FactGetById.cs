@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Facts.Queries;
+namespace OriGames.Facts.Web.Mediatr.Facts.Queries;
 
 public class FactGetByIdRequest : OperationResultRequestBase<FactViewModel>
 {

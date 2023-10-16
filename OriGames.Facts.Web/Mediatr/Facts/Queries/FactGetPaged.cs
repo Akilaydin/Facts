@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
 
 using AutoMapper;
 
@@ -14,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Facts.Queries;
+namespace OriGames.Facts.Web.Mediatr.Facts.Queries;
 
 public class FactGetPagedRequest : OperationResultRequestBase<IPagedList<FactViewModel>>
 {

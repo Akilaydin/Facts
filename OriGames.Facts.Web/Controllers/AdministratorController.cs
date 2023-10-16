@@ -3,11 +3,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using OriGames.Facts.Web.Controllers.Administrator.Queries;
+using OriGames.Facts.Web.Mediatr.Administrator.Queries;
 using OriGames.Facts.Web.Mediatr.Notifications;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Administrator;
+namespace OriGames.Facts.Web.Controllers;
 
 [Authorize]
 public class AdministratorController : Controller

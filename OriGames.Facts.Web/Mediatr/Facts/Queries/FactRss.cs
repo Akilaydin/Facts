@@ -9,7 +9,7 @@ using Microsoft.SyndicationFeed.Rss;
 
 using OriGames.Facts.Infrastructure.Services;
 
-namespace OriGames.Facts.Web.Controllers.Facts.Queries;
+namespace OriGames.Facts.Web.Mediatr.Facts.Queries;
 
 public record FactRssRequest : RequestBase<string>;
 

@@ -11,7 +11,7 @@ using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Infrastructure.Services;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Facts.Commands;
+namespace OriGames.Facts.Web.Mediatr.Facts.Commands;
 
 /// <summary>
 /// Mediator request for fact update

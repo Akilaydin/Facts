@@ -9,7 +9,7 @@ using Calabonga.UnitOfWork;
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Administrator.Queries;
+namespace OriGames.Facts.Web.Mediatr.Administrator.Queries;
 
 public class NotificationGetPagedRequest : RequestBase<OperationResult<IPagedList<NotificationViewModel>>>
 {

@@ -3,7 +3,7 @@
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Administrator.Queries;
+namespace OriGames.Facts.Web.Mediatr.Administrator.Queries;
 
 public static class NotificationSelectors
 {

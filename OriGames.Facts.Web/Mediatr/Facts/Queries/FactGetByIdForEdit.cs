@@ -6,7 +6,7 @@ using Calabonga.UnitOfWork;
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Web.ViewModels;
 
-namespace OriGames.Facts.Web.Controllers.Facts.Queries;
+namespace OriGames.Facts.Web.Mediatr.Facts.Queries;
 
 public record FactGetByIdForEditRequest(Guid Id, string ReturnUrl = null!) : OperationResultRequestBase<FactEditViewModel>;
 
