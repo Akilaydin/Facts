@@ -8,7 +8,7 @@ public class AutomapperTests
 {
 	[Fact]
 	[Trait("Automapper", "Mapper Configuration")]
-	public void ItShouldBeCorrectlyConfigured()
+	public void Mapping_Should_Be_Correct()
 	{
 		//Arrange
 		var config = MapperRegistration.GetMapperConfiguration();
