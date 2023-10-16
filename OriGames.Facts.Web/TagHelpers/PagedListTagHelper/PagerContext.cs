@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
+﻿namespace OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
 public class PagerContext
 {

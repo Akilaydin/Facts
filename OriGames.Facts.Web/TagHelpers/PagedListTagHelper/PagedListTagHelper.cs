@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
+namespace OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
 [HtmlTargetElement("pager", Attributes = PagerListPageIndexAttributeName)]
 [HtmlTargetElement("pager", Attributes = PagerListPageSizeAttributeName)]

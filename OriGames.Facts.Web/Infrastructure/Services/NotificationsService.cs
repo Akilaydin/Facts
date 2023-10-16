@@ -4,24 +4,23 @@ using Calabonga.UnitOfWork;
 
 using OriGames.Facts.Domain.Data;
 using OriGames.Facts.Domain.Interfaces;
-using OriGames.Facts.Web.Infrastructure.Services;
 
-namespace OriGames.Facts.Web.Infrastructure.Providers;
+namespace OriGames.Facts.Web.Infrastructure.Services;
 
-public class NotificationsProvider : INotificationsProvider
+public class NotificationsService : INotificationsService
 {
 	private readonly IEmailSenderService _emailSenderService;
 	private readonly IUnitOfWork _unitOfWork;
 	private readonly IMapper _mapper;
 
-	public NotificationsProvider(IEmailSenderService emailSenderService, IUnitOfWork unitOfWork, IMapper mapper)
+	public NotificationsService(IEmailSenderService emailSenderService, IUnitOfWork unitOfWork, IMapper mapper)
 	{
 		_emailSenderService = emailSenderService;
 		_unitOfWork = unitOfWork;
 		_mapper = mapper;
 	}
 
-	public async Task ProcessNotificationAsync(CancellationToken token)
+	public async Task SendScheduledNotificationsAsync(CancellationToken token)
 	{
 		var notificationsRepository = _unitOfWork.GetRepository<Notification>();
 

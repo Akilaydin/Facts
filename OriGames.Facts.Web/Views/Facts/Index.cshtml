@@ -11,7 +11,7 @@
         <partial name="_Fact" model="fact"/>
     }
 
-    <pager
+    <PagedListTagHelper
         class="my-1 d-flex justify-content-center"
         asp-paged-list-page-size="Model.Result.PageSize"
         asp-paged-list-total-count="Model.Result.TotalCount"
@@ -19,7 +19,7 @@
         asp-paged-list-url="index"
         asp-controller="facts"
         asp-route-parameter="pageIndex">
-    </pager>
+    </PagedListTagHelper>
 }
 
 @section Column

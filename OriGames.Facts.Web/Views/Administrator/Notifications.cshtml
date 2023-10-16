@@ -22,11 +22,11 @@
             <partial name="_NotificationView" model="item" view-data="ViewData" />
         }
 
-        <pager asp-paged-list-page-size="@Model.Result.PageSize"
+        <PagedListTagHelper asp-paged-list-page-size="@Model.Result.PageSize"
                asp-paged-list-page-index="@Model.Result.PageIndex"
                asp-paged-list-total-pages="@Model.Result.TotalPages"
                asp-paged-list-url="notifications"
-               asp-route-parameter="id"></pager>
+               asp-route-parameter="id"></PagedListTagHelper>
     }
     else
     {

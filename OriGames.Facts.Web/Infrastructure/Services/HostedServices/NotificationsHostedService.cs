@@ -1,10 +1,8 @@
 ﻿using Calabonga.Microservices.BackgroundWorkers;
 
 using OriGames.Facts.Infrastructure.Extensions;
-using OriGames.Facts.Web.Extensions;
-using OriGames.Facts.Web.Infrastructure.Providers;
 
-namespace OriGames.Facts.Web.Infrastructure.HostedServices;
+namespace OriGames.Facts.Web.Infrastructure.Services.HostedServices;
 
 public class NotificationsHostedService : ScheduledHostedServiceBase
 {
@@ -24,9 +22,9 @@ public class NotificationsHostedService : ScheduledHostedServiceBase
 	{
 		using var scope = serviceProvider.CreateScope();
 
-		var notificationsProvider = scope.ServiceProvider.GetService<INotificationsProvider>();
+		var notificationsProvider = scope.ServiceProvider.GetService<INotificationsService>();
 		
-		await notificationsProvider!.ProcessNotificationAsync(token);
+		await notificationsProvider!.SendScheduledNotificationsAsync(token);
 		
 		Logger.LogNotificationProcessed(DateTime.Now.ToString("F"));
 	}

@@ -1,6 +1,6 @@
-using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper.Base;
+using OriGames.Facts.Web.TagHelpers.PagedListTagHelper.Base;
 
-namespace OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
+namespace OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
 public class PagerTagHelperService : IPagerTagHelperService
 {

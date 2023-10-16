@@ -8,10 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using OriGames.Facts.Contracts;
 using OriGames.Facts.Domain.Interfaces;
 using OriGames.Facts.Infrastructure.Data;
-using OriGames.Facts.Web.Infrastructure.HostedServices;
-using OriGames.Facts.Web.Infrastructure.Providers;
 using OriGames.Facts.Web.Infrastructure.Services;
-using OriGames.Facts.Web.Infrastructure.TagHelpers.PagedListTagHelper;
+using OriGames.Facts.Web.Infrastructure.Services.HostedServices;
+using OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -59,7 +58,7 @@ try
 	builder.Services.AddTransient<IVersionInfoService, VersionInfoService>();
 	builder.Services.AddTransient<ITagService, TagService>();
 	builder.Services.AddTransient<ITagSearchService, TagSearchService>();
-	builder.Services.AddTransient<INotificationsProvider, NotificationsProvider>();
+	builder.Services.AddTransient<INotificationsService, NotificationsService>();
 	builder.Services.AddTransient<IEmailSenderService, MockAlwaysTrueEmailSenderService>();
 	
 	// Hosted Services
