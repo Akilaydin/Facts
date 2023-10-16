@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using OriGames.Facts.Contracts;
 using OriGames.Facts.Domain.Interfaces;
 using OriGames.Facts.Infrastructure.Data;
-using OriGames.Facts.Infrastructure.Mappers.Base;
 using OriGames.Facts.Web.Infrastructure.HostedServices;
 using OriGames.Facts.Web.Infrastructure.Providers;
 using OriGames.Facts.Web.Infrastructure.Services;
@@ -48,8 +47,6 @@ try
 	builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
 		.AddEntityFrameworkStores<ApplicationDbContext>();
 	
-	MapperRegistration.GetMapperConfiguration();
-
 	builder.Services.AddAutoMapper(typeof(Program).Assembly);
 	builder.Services.AddMediatR(typeof(Program).Assembly);
 	builder.Services.AddUnitOfWork<ApplicationDbContext>();
