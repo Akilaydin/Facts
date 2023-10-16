@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 
 using OriGames.Facts.Infrastructure.Services;
 
-namespace OriGames.Facts.RazorLibrary;
+namespace OriGames.Facts.Web.Razor;
 
 public class TagEditorComponentModel : ComponentBase
 {

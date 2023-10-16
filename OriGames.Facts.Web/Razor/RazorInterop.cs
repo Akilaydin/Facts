@@ -1,6 +1,6 @@
 using Microsoft.JSInterop;
 
-namespace OriGames.Facts.RazorLibrary;
+namespace OriGames.Facts.Web.Razor;
 
 // This class provides an example of how JavaScript functionality can be wrapped
 // in a .NET class for easy consumption. The associated JavaScript module is
@@ -15,7 +15,7 @@ public class RazorInterop : IAsyncDisposable
 	public RazorInterop(IJSRuntime jsRuntime)
 	{
 		_moduleTask = new Lazy<Task<IJSObjectReference>>(() =>
-			jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/OriGames.Facts.RazorLibrary/razorLibrary.js").AsTask());
+			jsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/razorLibrary.js").AsTask());
 	}
 
 	public async ValueTask<string> ShowToast(string message, string title, string type = "info")

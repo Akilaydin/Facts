@@ -40,28 +40,31 @@ public class TagService : ITagService
 			throw new ArgumentNullException(nameof(fact));
 		}
 
-		var tagRepository = _unitOfWork.GetRepository<Tag>();
+		var tagsRepository = _unitOfWork.GetRepository<Tag>();
+		var factsRepository = _unitOfWork.GetRepository<Fact>();
 
 		var tagsAfterEdit = tagsHolder.Tags!.ToArray();
-		var tagsBeforeEdit = Enumerable.ToArray<string>(tagRepository.GetAll(x => x.Name.ToLower(), x => Enumerable.Select<Fact, Guid>(x.Facts!, p => p.Id).Contains(fact.Id), null));
+		var tagsBeforeEdit = Enumerable.ToArray<string>(tagsRepository.GetAll(x => x.Name.ToLower(), x => Enumerable.Select<Fact, Guid>(x.Facts!, p => p.Id).Contains(fact.Id), null));
 
 		var (tagsToCreate, tagsToDelete) = FindDifferenceInTags(tagsBeforeEdit, tagsAfterEdit);
 
 		if (tagsToDelete.Any())
 		{
-			foreach (var name in tagsToDelete)
+			foreach (var tagToDelete in tagsToDelete)
 			{
-				var tag = await tagRepository.GetFirstOrDefaultAsync(predicate: x => x.Name.ToLower() == name, disableTracking: false);
+				var tag = await tagsRepository.GetFirstOrDefaultAsync(predicate: x => x.Name.ToLower() == tagToDelete, disableTracking: false);
 				if (tag == null)
 				{
 					continue;
 				}
 
-				var used = Enumerable.ToArray<bool>(_unitOfWork.GetRepository<Fact>().GetAll(x => Enumerable.Select<Tag, string>(x.Tags!, t => t.Name).Contains(tag.Name), true));
+				fact.Tags.Remove(tag);
 
-				if (used.Length == 1)
+				var timesUsed = factsRepository.GetAll(predicate: x => x.Tags!.Select(t => t.Name).Contains(tag.Name)).Count();
+				
+				if (timesUsed == 1)
 				{
-					tagRepository.Delete(tag);
+					tagsRepository.Delete(tag);
 				}
 			}
 		}
@@ -70,14 +73,14 @@ public class TagService : ITagService
 
 		foreach (var name in tagsToCreate)
 		{
-			var tag = await tagRepository.GetFirstOrDefaultAsync(predicate: x => x.Name.ToLower() == name, disableTracking: false);
+			var tag = await tagsRepository.GetFirstOrDefaultAsync(predicate: x => x.Name.ToLower() == name, disableTracking: false);
 			if (tag == null)
 			{
 				var t = new Tag {
 					Name = name.Trim().ToLower()
 				};
 				
-				await tagRepository.InsertAsync(t, cancellationToken);
+				await tagsRepository.InsertAsync(t, cancellationToken);
 				
 				fact.Tags!.Add(t);
 			}

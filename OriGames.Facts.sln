@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Web", "OriGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Web.Tests", "OriGames.Facts.Web.Tests\OriGames.Facts.Web.Tests.csproj", "{F561F3D5-6F6C-45F1-8193-22B6E149F63A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.RazorLibrary", "OriGames.Facts.RazorLibrary\OriGames.Facts.RazorLibrary.csproj", "{A3DFD20F-9C51-41A5-B823-8460440F812E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Domain", "OriGames.Facts.Domain\OriGames.Facts.Domain.csproj", "{5D74E07E-D9B9-4518-B522-C0CFAC11860B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Infrastructure", "OriGames.Facts.Infrastructure\OriGames.Facts.Infrastructure.csproj", "{6FC8CAE9-D10C-4B1D-B86E-2561ABD04D82}"
@@ -24,10 +22,6 @@ Global
 		{F561F3D5-6F6C-45F1-8193-22B6E149F63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F561F3D5-6F6C-45F1-8193-22B6E149F63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F561F3D5-6F6C-45F1-8193-22B6E149F63A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3DFD20F-9C51-41A5-B823-8460440F812E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3DFD20F-9C51-41A5-B823-8460440F812E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3DFD20F-9C51-41A5-B823-8460440F812E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3DFD20F-9C51-41A5-B823-8460440F812E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D74E07E-D9B9-4518-B522-C0CFAC11860B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D74E07E-D9B9-4518-B522-C0CFAC11860B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D74E07E-D9B9-4518-B522-C0CFAC11860B}.Release|Any CPU.ActiveCfg = Release|Any CPU
