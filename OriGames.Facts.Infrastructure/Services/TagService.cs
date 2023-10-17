@@ -28,7 +28,7 @@ public class TagService : ITagService
 		return cloud;
 	}
 
-	public async Task ProcessTagsAsync(ITagsHolder? tagsHolder, Fact fact, CancellationToken cancellationToken)
+	async Task ITagService.ProcessTagsAsync(ITagsHolder? tagsHolder, Fact fact, CancellationToken cancellationToken)
 	{
 		if (tagsHolder?.Tags is null)
 		{
@@ -44,7 +44,7 @@ public class TagService : ITagService
 		var factsRepository = _unitOfWork.GetRepository<Fact>();
 
 		var tagsAfterEdit = tagsHolder.Tags!.ToArray();
-		var tagsBeforeEdit = Enumerable.ToArray<string>(tagsRepository.GetAll(x => x.Name.ToLower(), x => Enumerable.Select<Fact, Guid>(x.Facts!, p => p.Id).Contains(fact.Id), null));
+		var tagsBeforeEdit = Enumerable.ToArray<string>(tagsRepository.GetAll(x => x.Name.ToLower(), x => Enumerable.Select(x.Facts!, p => p.Id).Contains(fact.Id), null));
 
 		var (tagsToCreate, tagsToDelete) = FindDifferenceInTags(tagsBeforeEdit, tagsAfterEdit);
 

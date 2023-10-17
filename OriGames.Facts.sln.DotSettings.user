@@ -7,6 +7,10 @@
     &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.AutomapperTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests.GetTwentyFacts_Should_Return_20_Facts&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTwentyFacts_Should_Not_Return_Null&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.ProcessTagsAsync_Should_Throw_On_fact_Argument_Null&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTagCloudAsync_Should_Not_Take_More_Than_30_Seconds&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTagCloudAsync_Should_Not_Take_More_Than_10_Seconds&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

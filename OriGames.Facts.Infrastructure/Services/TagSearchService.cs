@@ -14,9 +14,9 @@ public class TagSearchService : ITagSearchService
 
 	List<string> ITagSearchService.SearchTags(string term)
 	{
-		var tags = Enumerable.ToList<string>(_unitOfWork.GetRepository<Tag>()
-				.GetAll(s => s.Name, x => x.Name.ToLower()
-					.StartsWith(term.ToLower()), true));
+		var tags = _unitOfWork.GetRepository<Tag>()
+			.GetAll(s => s.Name, x => x.Name.ToLower()
+				.StartsWith(term.ToLower()), true).ToList();
 
 		return tags;
 	}
