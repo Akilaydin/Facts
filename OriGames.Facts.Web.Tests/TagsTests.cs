@@ -1,4 +1,5 @@
-﻿using OriGames.Facts.Infrastructure.Services;
+﻿using OriGames.Facts.Domain.Data;
+using OriGames.Facts.Infrastructure.Services;
 using OriGames.Facts.Web.ViewModels;
 
 using Xunit;
@@ -22,6 +23,17 @@ public class TagsTests
 	{
 		//Assert
 		await Assert.ThrowsAsync<ArgumentNullException>(() => _tagService.ProcessTagsAsync(new FactCreateViewModel(), null!, CancellationToken.None));
+	}
+	
+	[Fact]
+	public async Task ProcessTagsAsync_Should_Throw_On_Tags_Argument_Null()
+	{
+		//Arrange
+		var mockViewModel = new FactCreateViewModel { Tags = null };
+		
+		//Assert
+		await Assert.ThrowsAsync<ArgumentNullException>(() => 
+			_tagService.ProcessTagsAsync(mockViewModel, new Fact(), CancellationToken.None));
 	}
 
 	[Fact]
