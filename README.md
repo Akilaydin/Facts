@@ -1,7 +1,3 @@
-Sure, below is an example of how your `README.md` could look like:
-
----
-
 # OriGames.Facts
 
 This project serves as a comprehensive guide to learn ASP.NET Core. The project consists of several projects targeting different aspects of ASP.NET Core:
