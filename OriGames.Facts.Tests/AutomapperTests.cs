@@ -1,8 +1,10 @@
-﻿using OriGames.Facts.Infrastructure.Mappers.Configurations;
+﻿using OriGames.Facts.Domain.Data;
+using OriGames.Facts.Infrastructure.Mappers.Configurations;
+using OriGames.Facts.Infrastructure.Services;
 
 using Xunit;
 
-namespace OriGames.Facts.Web.Tests;
+namespace OriGames.Facts.Tests;
 
 public class AutomapperTests
 {
@@ -18,4 +20,6 @@ public class AutomapperTests
 		//Assert
 		config.AssertConfigurationIsValid();
 	}
+
+	
 }

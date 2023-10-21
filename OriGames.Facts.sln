@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Web", "OriGames.Facts.Web\OriGames.Facts.Web.csproj", "{E8D1A67E-8F95-450A-8A67-8E3749B9CCA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Web.Tests", "OriGames.Facts.Web.Tests\OriGames.Facts.Web.Tests.csproj", "{F561F3D5-6F6C-45F1-8193-22B6E149F63A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Tests", "OriGames.Facts.Tests\OriGames.Facts.Tests.csproj", "{F561F3D5-6F6C-45F1-8193-22B6E149F63A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriGames.Facts.Domain", "OriGames.Facts.Domain\OriGames.Facts.Domain.csproj", "{5D74E07E-D9B9-4518-B522-C0CFAC11860B}"
 EndProject

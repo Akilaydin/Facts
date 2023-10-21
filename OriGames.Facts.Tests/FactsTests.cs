@@ -2,7 +2,7 @@
 
 using Xunit;
 
-namespace OriGames.Facts.Web.Tests;
+namespace OriGames.Facts.Tests;
 
 public class FactsTests
 {

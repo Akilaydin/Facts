@@ -13,7 +13,7 @@ using OriGames.Facts.Infrastructure.Services;
 using OriGames.Facts.Infrastructure.Services.HostedServices;
 using OriGames.Facts.Web.TagHelpers.PagedListTagHelper;
 
-namespace OriGames.Facts.Web.Tests;
+namespace OriGames.Facts.Tests;
 
 public class Startup
 {

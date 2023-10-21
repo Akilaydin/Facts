@@ -1,4 +1,4 @@
-﻿namespace OriGames.Facts.Web.Tests;
+﻿namespace OriGames.Facts.Tests;
 
 public static class TestConstants
 {

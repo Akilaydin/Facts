@@ -5,7 +5,7 @@ using OriGames.Facts.Web.ViewModels;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace OriGames.Facts.Web.Tests;
+namespace OriGames.Facts.Tests;
 
 public class TagsTests
 {

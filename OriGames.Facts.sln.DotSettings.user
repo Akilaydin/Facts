@@ -1,16 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=F561F3D5_002D6F6C_002D45F1_002D8193_002D22B6E149F63A_002Ff_003AInfrastructureTests_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\akila\.nuget\packages\calabonga.aspnetcore.controllers\3.0.1\lib\net5.0\Calabonga.AspNetCore.Controllers.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fe72e4c8_002Da6b9_002D46c0_002Da627_002D31b4b316f14e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AutomapperTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.AutomapperTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests.GetTwentyFacts_Should_Return_20_Facts&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.FactsTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTwentyFacts_Should_Not_Return_Null&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.ProcessTagsAsync_Should_Throw_On_fact_Argument_Null&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTagCloudAsync_Should_Not_Take_More_Than_30_Seconds&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::F561F3D5-6F6C-45F1-8193-22B6E149F63A::net7.0::OriGames.Facts.Web.Tests.TagsTests.GetTagCloudAsync_Should_Not_Take_More_Than_10_Seconds&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Project Location="H:\CSharpProjects\OriGames.Facts\OriGames.Facts.Tests" Presentation="&amp;lt;OriGames.Facts.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
